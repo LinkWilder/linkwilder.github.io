@@ -1,0 +1,145 @@
+:root {
+    --main-color: #1f77b4;
+    --submain-color: rgb(240, 240, 240);
+}
+body {
+    margin: 0;
+    overflow-y: scroll;
+}
+.body-container {
+    margin: auto;
+    width: 1500px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+.welcome {
+    width: 100%;
+    height: 100px;
+    background-color: color-mix(in srgb, var(--main-color), white 30%);
+    color: white;
+    font-family: serif;
+    font-weight: bold;
+    font-size: 40px;
+    /* layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    /* layout */
+}
+nav {
+    margin-bottom: 50px;
+    width: 100%;
+    height: 80px;
+    background-color: var(--main-color);
+    color: white;
+    box-shadow: 0 10px 20px color-mix(in srgb, var(--submain-color), var(--main-color) 50%);
+    /* layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    /* layout */
+    position: sticky;
+    top: 0;
+}
+nav a {
+    width: 15%;
+    height: 80%;
+    text-decoration-line: none;
+    border-radius: 20px;
+    background-color: color-mix(in srgb, var(--main-color), black 20%);
+    color: white;
+    font-size: 25px;
+    cursor: pointer;
+    /* layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    /* layout */
+}
+nav a:hover {
+    background-color: color-mix(in srgb, var(--main-color), black 40%);
+    transform: scale(95%, 95%);
+    font-weight: bold;
+}
+.main-container {
+    width: 100%;
+    /* min-height: calc(100vh - 300px); */
+    display: flex;
+    justify-content: space-between;
+    flex: 1;
+}
+.left-container {
+    width: 20%;
+    height: min-content;
+    border-radius: 25px;
+    background-color: var(--submain-color);
+    display: inline-block;
+    position: sticky;
+    top: 110px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 2;
+}
+.left-container a {
+    text-decoration-line: none;
+    color: color-mix(in srgb, var(--main-color), black 40%);
+}
+.left-container a:hover {
+    font-weight: bold;
+}
+.middle-container {
+    width: 55%;
+    height: 100%;
+    padding: 20px;
+    border-radius: 20px;
+    background-color: var(--submain-color);
+    box-shadow: 0 15px 15px rgba(0, 0, 0, 0.5);
+    display: inline-block;
+}
+.right-container {
+    width: 20%;
+    height: 500px;
+    border-radius: 20px;
+    background-color: var(--submain-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: sticky;
+    top: 110px;
+}
+.article {
+    width: 100%;
+    margin-top: 10px;
+}
+.article-title {
+    font-size: 60px;
+    font-family: serif;
+    font-weight: bold;
+    /* layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    /* layout */
+}
+footer {
+    margin-top: 30px;
+    width: 100%;
+    height: 50px;
+    background-color: var(--main-color);
+    color: white;
+    font-size: 20px;
+    /* layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    /* layout */
+    position: sticky;
+    top: calc(100vh - 80px);
+}
