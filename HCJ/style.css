@@ -112,6 +112,29 @@ nav a:hover {
     position: sticky;
     top: 110px;
 }
+.personl-info {
+    margin-inline: auto;
+    width: 80%;
+    height: 30%;
+    /* layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    /* layout */
+}
+.personl-info .info-ico {
+    width: 50%;
+    /* margin-right: 20px; */
+}
+.personl-info a {
+    width: 50%;
+    text-decoration-line: none;
+    color: color-mix(in srgb, var(--main-color), black 40%);
+}
+.personl-info a:hover {
+    font-weight: bold;
+}
 .article {
     width: 100%;
     margin-top: 10px;
