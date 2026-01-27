@@ -43,6 +43,7 @@ nav {
     /* layout */
     position: sticky;
     top: 0;
+    z-index: 1000;
 }
 nav a {
     width: 15%;
@@ -123,12 +124,17 @@ nav a:hover {
     align-items: center;
     /* layout */
 }
-.personl-info .info-ico {
+.personl-info .info-ico, .info-text {
     width: 50%;
-    /* margin-right: 20px; */
+    /* layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    /* layout */
 }
 .personl-info a {
-    width: 50%;
+    /* width: 50%; */
     text-decoration-line: none;
     color: color-mix(in srgb, var(--main-color), black 40%);
 }
