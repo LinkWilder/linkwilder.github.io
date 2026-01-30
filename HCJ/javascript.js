@@ -34,5 +34,5 @@ function loadHTML(id, url) {
     });
 }
 
-loadHTML('header-container', '/partials/header.html');
+loadHTML('header-container', 'partials/header.html');
 // loadHTML('footer-container', '/partials/footer.html');
