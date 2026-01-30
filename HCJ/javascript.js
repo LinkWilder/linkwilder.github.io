@@ -32,7 +32,7 @@ function loadHTML(cla, url) {
 document.addEventListener("DOMContentLoaded", () => {
     const navitemes = document.querySelectorAll(".nav-item-text");
     navitemes.forEach(navitem => {
-        navitem.addEventListener("click", () => { loadHTML(".article", `partials/${navitem.id}.html`) })
+        navitem.addEventListener("click", () => { loadHTML(".article", `/partials/${navitem.id}.html`) })
     });
-    loadHTML(".article", "partials/homepage.html");
+    loadHTML(".article", "/partials/homepage.html");
 });
