@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Link Wilder</title>
-    <link rel="shortcut icon" href="/assets/LW_Circle.png">
-    <link rel="stylesheet" href="/HCJ/style.css">
-    <link rel="stylesheet" href="/HCJ/prism.css">
-    <script src="/HCJ/javascript.js"></script>
-    <script src="/HCJ/prism.js"></script>
+    <link rel="shortcut icon" href="assets/LW_Circle.png">
+    <link rel="stylesheet" href="HCJ/style.css">
+    <link rel="stylesheet" href="HCJ/prism.css">
+    <script src="HCJ/javascript.js"></script>
+    <script src="HCJ/prism.js"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
-    <script src="/HCJ/mathjax.js"></script>
+    <script src="HCJ/mathjax.js"></script>
 </head>
 <body class="line-numbers">
     <div class="body-container">
@@ -19,18 +19,18 @@
             <div class="welcome-item" style="display: inline-block;">Thanks to GitHub!</div>
         </div>
         <nav>
-            <div class="nav-item"><a href="index.html">Home Page</a></div>
+            <div class="nav-item"><div class="nav-item-text" id="homepage">Home Page</div></div>
             <div class="nav-item">
-                <a href="python.html">Python</a>
-                <div class="nav-sub">
-                    <a href="#">Python的安装</a>
-                    <a href="#">Python的标准库</a>
-                    <a href="#">Python的第三方库</a>
+                <div class="nav-item-text" id="python">Python ▾</div>
+                <div class="nav-subitem">
+                    <div class="nav-item-text" id="python-install">Python的安装</div>
+                    <div class="nav-item-text" id="python-standard">Python的标准库</div>
+                    <div class="nav-item-text" id="python-third">Python的第三方库</div>
                 </div>
             </div>
-            <div class="nav-item"><a href="latex.html">LaTeX</a></div>
-            <div class="nav-item"><a href="economics.html">Economics</a></div>
-            <div class="nav-item"><a href="aboutme.html">About me</a></div>
+            <div class="nav-item" id="latex"><div class="nav-item-text">LaTeX</div></div>
+            <div class="nav-item" id="economics"><div class="nav-item-text">Economics</div></div>
+            <div class="nav-item" id="aboutme"><div class="nav-item-text">About me</div></div>
         </nav>
         <div class="main-container">
             <div class="left-container" id="current-contents">
@@ -38,45 +38,14 @@
             </div>
             <div class="middle-container">
                 <!-- 修改内容如下 -->
-                <div class="article">
-                    <div class="article-title">欢迎来到我的Github主页！</div>
-                    <p>注意此网站仍在开发测试中！！！</p>
-                    <p>我是一名经济学学生，同时也是一名业余开发者，我主要在这里分享一些关于Python、LaTeX和经济学的一些凌乱的想法。</p>
-                    <hr>
-                    <h1>Python</h1>
-                    <h2>AI时代，还需要学编程吗？</h2>
-                    <p>随着<span class="code">AI</span>的流行，似乎我们已经不再需要学习编程，像Gemini、ChatGPT、Claude、Kimi、DeepSeek等大语言模型已经能够根据我们的问题给出质量很高的回答。</p>
-                    <p>但是，我认为学习一门编程语言仍然是利大于弊的事情：</p>
-                    <ul>
-                    <li>首先，哪怕是现在最顶级的大语言模型Gemini 3 Pro，在回答中仍然无法完全避免AI幻觉，这需要我们有甄别的能力，就编程而言，要甄别就必须先学会它。</li>
-                    <li>其次，编程的过程就是我们思考的过程，循环、判断、函数等都是我们思维的体现，我们可以在编程的过程中锻炼逻辑思考的能力。</li>
-                    </ul>
-                    <h2>为什么是Python？</h2>
-                    <p>根据Tiobe指数，Python是评分最高的编程语言（2026年1月，22.61%），是C语言和Java的两倍多，不难看出其流行程度。这其中，Python活跃和庞大的第三方库和模块发挥了重要作用，也因此被称为“胶水语言”。</p>
-                    <p>在数据科学和数据分析领域，Numpy、Pandas、Matplotlib是用户最广、功能最多的第三库。</p>
-                    <ul>
-                    <li>NumPy的向量化、索引和广播概念快速且用途广泛，是当今数组计算的事实标准。它的核心是C语言。</li>
-                    <li>Pandas是一个快速、强大、灵活且易于使用的开源数据分析和处理工具，它基于Python编程语言构建。</li>
-                    <li>Matplotlib是一个功能全面的Python可视化库，用于创建静态、动态和交互式可视化图表。</li>
-                    </ul>
-                    <p>最后，也是最重要的，我只会Python，所以...🤡</p>
-                    <hr>
-                    <h1>LaTeX</h1>
-                    <p>强大的复杂数学公式排版能力一直是LaTeX最为坚固的护城河，如果你的写作过程中设计到大量的公式，LaTeX绝对是你最好的帮手。</p>
-                    <p>什么？出版社要求Word版本？别担心，瑞士军刀Pandoc会帮你，不只是LaTeX与Word，Markdown、HTML等几十种文档格式，它都可以帮你转换。</p>
-                    <p>即使你所涉及的数学公式并不多，我仍然推荐优先使用LaTeX写初稿，再用Pandoc转化为Word。这是因为，虽然Word已经支持LaTeX格式输入数学公式，但是并没有完全匹配LaTeX的语法。另外，如果你关闭之后再重新打开Word文档，你也许会发现，原本还是斜体的数学符号已经变为正体了，这似乎是一个Bug。如果你使用Pandoc转化LaTeX，则不会有这个问题。</p>
-                    <hr>
-                    <h1>经济学</h1>
-                    <p>虽然我是一名经济学专业的学生，但我认为我对经济学的认识仍然比较浅薄，所以这里没有太多信息。</p>
-                    <p>不过我一直喜欢经济学中的一句话：大部分模型都是错的，但有一些是有用的。</p>
-                </div>
+                <div class="article"></div>
                 <!-- 修改内容如上 -->
             </div>
             <div class="right-container">
-                <img src="/assets/LW_Circle.png" alt="" width="150">
+                <img src="assets/LW_Circle.png" alt="" width="150">
                 <p>Link Wilder</p>
                 <div class="personl-info">
-                    <div class="info-ico"><img src="/assets/GitHub_Lockup_Black.png" width="80"></div>
+                    <div class="info-ico"><img src="assets/GitHub_Lockup_Black.png" width="80"></div>
                     <div class="info-text"><a href="https://github.com/LinkWilder">LinkWilder</a></div>
                 </div>
             </div>
