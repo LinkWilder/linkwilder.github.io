@@ -13,10 +13,10 @@ body {
     display: flex;
     flex-direction: column;
 }
-#header-container {
+/* #header-container {
     width: 100%;
     height: 180px;
-}
+} */
 .welcome {
     width: 100%;
     height: 100px;
