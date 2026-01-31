@@ -144,6 +144,11 @@ nav > .nav-item {
     border: 3px solid gray; 
     object-fit: cover;
 }
+.right-container > p {
+    font-family: serif;
+    font-weight: bold;
+    font-style: italic;
+}
 .personl-info {
     margin-inline: auto;
     width: 80%;
