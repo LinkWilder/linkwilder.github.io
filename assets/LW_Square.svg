@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="_图层_1" data-name="图层 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 198.43 198.43">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #007d7d;
+      }
+
+      .cls-2 {
+        fill: #1964af;
+      }
+
+      .cls-3 {
+        fill: none;
+      }
+
+      .cls-4 {
+        fill: #e16400;
+      }
+
+      .cls-5 {
+        fill: #c80000;
+      }
+
+      .cls-6 {
+        fill: #964b32;
+      }
+
+      .cls-7 {
+        fill: #32af32;
+      }
+
+      .cls-8 {
+        clip-path: url(#clippath);
+      }
+    </style>
+    <clipPath id="clippath">
+      <rect class="cls-3" width="198.43" height="198.43"/>
+    </clipPath>
+  </defs>
+  <g class="cls-8">
+    <rect class="cls-3" width="198.43" height="198.43"/>
+    <rect class="cls-1" x="77.95" y="77.95" width="42.52" height="170.08" rx="21.26" ry="21.26" transform="translate(-63.78 262.2) rotate(-90)"/>
+    <rect class="cls-6" x="14.17" y="14.17" width="42.52" height="170.08" rx="21.26" ry="21.26"/>
+    <rect class="cls-7" x="141.73" y="14.17" width="42.52" height="113.39" rx="21.26" ry="21.26"/>
+    <rect class="cls-5" x="14.17" y="14.17" width="42.52" height="113.39" rx="21.26" ry="21.26"/>
+    <rect class="cls-4" x="109.9" y="29.91" width="42.52" height="116.02" rx="21.26" ry="21.26" transform="translate(-10.56 157.55) rotate(-60)"/>
+    <rect class="cls-2" x="46" y="29.91" width="42.52" height="116.02" rx="21.26" ry="21.26" transform="translate(24.76 190.13) rotate(-120)"/>
+  </g>
+</svg>
