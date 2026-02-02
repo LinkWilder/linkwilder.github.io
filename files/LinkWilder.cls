@@ -4,7 +4,7 @@
 % en = [None,NCM,NCMS,TGPX,TGTX,TGNCMS,Source,Roboto,APC,ATC,ACC]
 % ma = [None,STIX,NCM,NCMS,TGP,TGT]
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{LinkWilder}[2026/02/02/17/00 v1.0]
+\ProvidesClass{LinkWilder}[2026/02/02/20/40 v1.0]
 % 文档类选项命令定义=============================================================
 \RequirePackage{kvoptions}
 \RequirePackage{etoolbox}
@@ -20,12 +20,12 @@
 % article---------------------------------------------------------------------
 \ifdefstring{\LinkWilder@class}{article}{%
     \ifdefstring{\LinkWilder@sc}{None}
-    {\LoadClass[10pt]{article}}{\LoadClass[fontset=none,zihao=5]{ctexart}}
+    {\LoadClass{article}}{\LoadClass[fontset=none]{ctexart}}
 }{}
 % beamer----------------------------------------------------------------------
 \ifdefstring{\LinkWilder@class}{beamer}{%
     \ifdefstring{\LinkWilder@sc}{None}
-    {\LoadClass[10pt]{beamer}}{\LoadClass[fontset=none,10pt]{ctexbeamer}}
+    {\LoadClass{beamer}}{\LoadClass[fontset=none]{ctexbeamer}}
 }{}
 }
 % 根据选项设置对应字体============================================================
@@ -698,7 +698,7 @@
 \ifdefstring{\LinkWilder@class}{article}{%
 % 页边距设置--------------------------------------------------------------------
 \geometry{margin=3cm,headheight=1cm,headsep=0.5cm,footskip=1.5cm}
-% 页眉页脚设置
+% 页眉页脚设置------------------------------------------------------------------
 \RequirePackage{fancyhdr}
 \RequirePackage{authoraftertitle}
 \fancypagestyle{plain}{
@@ -739,6 +739,12 @@
         \end{tabular}\par} \vskip 1em
     {\large \@date}
     \end{center}\par\vskip 1em}
+% abstract环境设置--------------------------------------------------------------
+\renewenvironment{abstract}{
+\begin{center}
+    {\sffamily \abstractname\vspace{-0.5em}}
+\end{center}
+\quotation}{\endquotation}
 % appendix命令设置--------------------------------------------------------------
 \renewcommand{\appendix}[1]{
 \setcounter{section}{0}
@@ -749,17 +755,20 @@
 % 中英文章节标题设置-------------------------------------------------------------
 \RequirePackage{titlesec}
 \ifdefstring{\LinkWilder@sc}{None}{
-    \titleformat{\section}{\Large\sffamily}{\thesection}{0em}{. }[]
+    \titleformat{\section}{\Large\sffamily}{\thesection}{0em}{}[]
     \titlespacing*{\section}{0em}{1em}{1em}
-    \titleformat{\subsection}{\normalsize\sffamily}{\thesubsection}{0em}{. }[]
+    \titleformat{\subsection}{\normalsize\sffamily}{\thesubsection}{0em}{}[]
     \titlespacing*{\subsection}{0em}{0.5em}{0.5em}
-    \titleformat{\subsubsection}{\normalsize\sffamily}{\thesubsubsection}{0em}{. }[]
+    \titleformat{\subsubsection}{\normalsize\sffamily}{\thesubsubsection}{0em}{}[]
     \titlespacing*{\subsubsection}{0em}{0.5em}{0.5em}
-    \titleformat{\paragraph}[runin]{\normalsize\sffamily}{\theparagraph}{2em}{}[]
-    \titlespacing*{\paragraph}{0em}{0em}{1em}
-    % \renewcommand{\thesection}{\Roman{section}}
-    % \renewcommand{\thesubsection}{\Alph{subsection}}
-    % \renewcommand{\thesubsubsection}{\arabic{subsubsection}}
+    \titleformat{\paragraph}[runin]{\normalsize\sffamily}{\theparagraph}{0em}{}[]
+    \titlespacing*{\paragraph}{0em}{0.5em}{1em}
+    \titleformat{\subparagraph}[runin]{\normalsize\sffamily}{\theparagraph}{0em}{}[]
+    \titlespacing*{\subparagraph}{2em}{0.5em}{1em}
+    
+    \renewcommand{\thesection}{\arabic{section}. }
+    \renewcommand{\thesubsection}{\arabic{section}.\arabic{subsection}. }
+    \renewcommand{\thesubsubsection}{\arabic{section}.\arabic{subsection}.\arabic{subsubsection}. }
 }{
     \titleformat{\section}{\Large\sffamily\centering}{\CTEXthesection}{0em}{}[]
     \titlespacing{\section}{0em}{1em}{1em}
@@ -768,7 +777,10 @@
     \titleformat{\subsubsection}{\normalsize\sffamily}{\CTEXthesubsubsection}{0em}{}[]
     \titlespacing{\subsubsection}{2em}{0.5em}{0.5em}
     \titleformat{\paragraph}[runin]{\normalsize\sffamily}{\CTEXtheparagraph}{0em}{}[]
-    \titlespacing{\paragraph}{2em}{0em}{1em}
+    \titlespacing*{\paragraph}{0em}{0.5em}{1em}
+    \titleformat{\subparagraph}[runin]{\normalsize\sffamily}{\CTEXthesubparagraph}{0em}{}[]
+    \titlespacing*{\subparagraph}{2em}{0.5em}{1em}
+    
     \renewcommand{\CTEXthesection}{\chinese{section}、}
     \renewcommand{\CTEXthesubsection}{（\chinese{subsection}）}
     \renewcommand{\CTEXthesubsubsection}{\arabic{subsubsection}. }
@@ -780,3 +792,4 @@
 % 其他设置======================================================================
 \RequirePackage{graphicx}
 \RequirePackage{makecell}
+\RequirePackage[colorlinks=true,linkcolor=blue,bookmarksnumbered=true]{hyperref}
