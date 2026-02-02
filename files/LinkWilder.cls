@@ -718,30 +718,6 @@
     \newcommand{\textkai}[1]{{\Kai\EngMain #1}}
     \newcommand{\textfang}[1]{{\Fang\EngMain #1}}
 }
-% 字号命令设置------------------------------------------------------------------
-% \ifdefstring{\LinkWilder@sc}{None}{
-%     \renewcommand{\tiny}{\@setfontsize\tiny{6pt}{7.2pt}}
-%     \renewcommand{\scriptsize}{\@setfontsize\scriptsize{7pt}{8.4pt}}
-%     \renewcommand{\footnotesize}{\@setfontsize\footnotesize{8pt}{9.6pt}}
-%     \renewcommand{\small}{\@setfontsize\small{9pt}{10.8pt}}
-%     \renewcommand{\normalsize}{\@setfontsize\normalsize{10pt}{12pt}}
-%     \renewcommand{\large}{\@setfontsize\large{12pt}{14.4pt}}
-%     \renewcommand{\Large}{\@setfontsize\Large{14pt}{16.8pt}}
-%     \renewcommand{\LARGE}{\@setfontsize\LARGE{16pt}{19.2pt}}
-%     \renewcommand{\huge}{\@setfontsize\huge{18pt}{21.6pt}}
-%     \renewcommand{\Huge}{\@setfontsize\Huge{22pt}{26.4pt}}
-% }{% \@setfontsize{命令}{字体大小}{行间距}
-%     \renewcommand{\tiny}{\@setfontsize\tiny{5.5bp}{6.05bp}}% 七号 (5.5*1.1=6.05)
-%     \renewcommand{\scriptsize}{\@setfontsize\scriptsize{6.5bp}{7.15bp}}% 小六 (6.5*1.1=7.15)
-%     \renewcommand{\footnotesize}{\@setfontsize\footnotesize{7.5bp}{8.25bp}}% 六号 (7.5*1.1=8.25)
-%     \renewcommand{\small}{\@setfontsize\small{9bp}{9.9bp}}% 小五 (9*1.1=9.9)
-%     \renewcommand{\normalsize}{\@setfontsize\normalsize{10.5bp}{11.55bp}}% 五号 (10.5*1.1=11.55)
-%     \renewcommand{\large}{\@setfontsize\large{12bp}{13.2bp}}% 小四 (12*1.1=13.2)
-%     \renewcommand{\Large}{\@setfontsize\Large{14bp}{15.4bp}}% 四号 (14*1.1=15.4)
-%     \renewcommand{\LARGE}{\@setfontsize\LARGE{16bp}{17.6bp}}% 三号 (16*1.1=17.6)
-%     \renewcommand{\huge}{\@setfontsize\huge{18bp}{19.8bp}}% 小二 (18*1.1=19.8)
-%     \renewcommand{\Huge}{\@setfontsize\Huge{22bp}{24.2bp}}% 二号 (22*1.1=24.2)
-% }
 % maketitle命令设置-------------------------------------------------------------
 \newcommand{\subtitle}[1]{\gdef\@subtitle{#1}}
 \def\@subtitle{}
@@ -779,7 +755,7 @@
     \titlespacing*{\subsection}{0em}{0.5em}{0.5em}
     \titleformat{\subsubsection}{\normalsize\sffamily}{\thesubsubsection}{0em}{. }[]
     \titlespacing*{\subsubsection}{0em}{0.5em}{0.5em}
-    \titleformat{\paragraph}[runin]{\normalsize\sffamily}{\theparagraph}{0em}{. }[]
+    \titleformat{\paragraph}[runin]{\normalsize\sffamily}{\theparagraph}{2em}{}[]
     \titlespacing*{\paragraph}{0em}{0em}{1em}
     % \renewcommand{\thesection}{\Roman{section}}
     % \renewcommand{\thesubsection}{\Alph{subsection}}
@@ -799,7 +775,7 @@
 }
 % 公式编号----------------------------------------------------------------------
 \RequirePackage{amsmath}
-\numberwithin{equation}{section}
+% \numberwithin{equation}{section}
 }{}
 % 其他设置======================================================================
 \RequirePackage{graphicx}
