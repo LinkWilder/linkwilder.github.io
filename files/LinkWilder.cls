@@ -1,7 +1,7 @@
 % Required Engine: XeLaTeX, Option:
-% class = [article,beamer]
+% cls = [article,beamer]
 % sc = [None,Adobe,Fandol,Founder,ZhongYi] `None` wihtout CTEX
-% en = [None,NCM,NCMS,TGPX,TGTX,TGNCMS,Source,Roboto,APC,ATC,ACC]
+% en = [None,NCM,NCMS,TGPX,TGTX,TGNCM,Source,Roboto,APC,ATC,ACC]
 % ma = [None,STIX,NCM,NCMS,TGP,TGT]
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{LinkWilder}[2026/02/02/20/40 v1.0]
@@ -11,19 +11,19 @@
 
 \SetupKeyvalOptions{family=LinkWilder,prefix=LinkWilder@}
 
-\DeclareStringOption[article]{class}
+\DeclareStringOption[article]{cls}
 \DeclareStringOption[Founder]{sc}
 \DeclareStringOption[ATC]{en}
 \DeclareStringOption[NCM]{ma}
 % 根据选项设置文档类=============================================================
-\newcommand{\setclasswithoption}{
+\newcommand{\setclswithoption}{
 % article---------------------------------------------------------------------
-\ifdefstring{\LinkWilder@class}{article}{%
+\ifdefstring{\LinkWilder@cls}{article}{%
     \ifdefstring{\LinkWilder@sc}{None}
     {\LoadClass{article}}{\LoadClass[fontset=none]{ctexart}}
 }{}
 % beamer----------------------------------------------------------------------
-\ifdefstring{\LinkWilder@class}{beamer}{%
+\ifdefstring{\LinkWilder@cls}{beamer}{%
     \ifdefstring{\LinkWilder@sc}{None}
     {\LoadClass{beamer}}{\LoadClass[fontset=none]{ctexbeamer}}
 }{}
@@ -35,7 +35,7 @@
     \ifdefstring{\LinkWilder@sc}{None}{}{}
     % Adobe-------------------------------------------------------------------
     \ifdefstring{\LinkWilder@sc}{Adobe}{
-    \ifdefstring{\LinkWilder@class}{beamer}{
+    \ifdefstring{\LinkWilder@cls}{beamer}{
         % Adobebeamer---------------------------------------------------------
         \setCJKmainfont[
             Extension = .otf,
@@ -87,7 +87,7 @@
     }}{}
     % Fandol------------------------------------------------------------------
     \ifdefstring{\LinkWilder@sc}{Fandol}{
-    \ifdefstring{\LinkWilder@class}{beamer}{
+    \ifdefstring{\LinkWilder@cls}{beamer}{
         % Fandolbeamer--------------------------------------------------------
         \setCJKmainfont[
             Extension = .otf,
@@ -143,7 +143,7 @@
     }}{}
     % Founder-----------------------------------------------------------------
     \ifdefstring{\LinkWilder@sc}{Founder}{
-    \ifdefstring{\LinkWilder@class}{beamer}{
+    \ifdefstring{\LinkWilder@cls}{beamer}{
         % Founderbeamer-------------------------------------------------------
         \setCJKmainfont[
             Extension = .otf,
@@ -194,7 +194,7 @@
     }}{}
     % ZhongYi-----------------------------------------------------------------
     \ifdefstring{\LinkWilder@sc}{ZhongYi}{
-    \ifdefstring{\LinkWilder@class}{beamer}{
+    \ifdefstring{\LinkWilder@cls}{beamer}{
         % ZhongYibeamer-------------------------------------------------------
         \setCJKmainfont[
             Extension = .ttf,
@@ -365,14 +365,14 @@
         ]{TeXGyreTermesX}
     }{}
     % TeXGyreHeros & NewComputerModernSansBook & TeXGyreCursor----------------
-    \ifdefstring{\LinkWilder@en}{TGNCMS}{
+    \ifdefstring{\LinkWilder@en}{TGNCM}{
         \setmainfont[
             Extension = .otf,
             UprightFont = *-Book,
             BoldFont = *-Bold,
-            ItalicFont = *-BookOblique,
-            BoldItalicFont = *-BoldOblique
-        ]{NewCMSans10}
+            ItalicFont = *-BookItalic,
+            BoldItalicFont = *-BoldItalic
+        ]{NewCM10}
         \setsansfont[
             Extension = .otf,
             UprightFont = *-regular,
@@ -588,7 +588,7 @@
 % 处理选项======================================================================
 \ProcessKeyvalOptions*
 
-\setclasswithoption
+\setclswithoption
 \RequirePackage{fontspec}
 \setscfontwithoption
 \setenfontwithoption
@@ -622,7 +622,7 @@
 \RequirePackage{tikz}
 \RequirePackage{geometry}
 % beamer======================================================================
-\ifdefstring{\LinkWilder@class}{beamer}{%
+\ifdefstring{\LinkWilder@cls}{beamer}{%
 \geometry{paperwidth=160mm, paperheight=100mm}
 % 文字两端对齐而非左对齐
 \renewcommand{\raggedright}{\leftskip=0pt \rightskip=0pt plus 0cm}
@@ -695,7 +695,7 @@
 \setbeamercolor{block body}{parent=normal text,use=block title,bg=block title.bg!10!bg}
 }{}
 % article=====================================================================
-\ifdefstring{\LinkWilder@class}{article}{%
+\ifdefstring{\LinkWilder@cls}{article}{%
 % 页边距设置--------------------------------------------------------------------
 \geometry{margin=3cm,headheight=1cm,headsep=0.5cm,footskip=1.5cm}
 % 页眉页脚设置------------------------------------------------------------------
