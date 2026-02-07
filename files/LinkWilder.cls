@@ -785,4 +785,4 @@
     \renewcommand{\CTEXthesubsection}{（\chinese{subsection}）}
     \renewcommand{\CTEXthesubsubsection}{\arabic{subsubsection}. }
 }
-}
+}{}
