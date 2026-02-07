@@ -1,5 +1,6 @@
 % Required Engine: XeLaTeX, Option:
 % cls = [article,beamer]
+% bfsf = [bf,sf,bfsf]
 % sc = [None,Adobe,Fandol,Founder,ZhongYi] `None` wihtout CTEX
 % en = [None,NCM,NCMS,TGPX,TGTX,TGNCM,Source,Roboto,APC,ATC,ACC]
 % ma = [None,STIX,NCM,NCMS,TGP,TGT]
@@ -12,6 +13,7 @@
 \SetupKeyvalOptions{family=LinkWilder,prefix=LinkWilder@}
 
 \DeclareStringOption[article]{cls}
+\DeclareStringOption[sf]{bfsf}
 \DeclareStringOption[Founder]{sc}
 \DeclareStringOption[ATC]{en}
 \DeclareStringOption[NCM]{ma}
@@ -389,8 +391,8 @@
         ]{texgyrecursor}
         \newfontfamily\EngMain[
             Extension = .otf,
-            UprightFont = *-Regular
-        ]{NewCMSans10}
+            UprightFont = *-Book
+        ]{NewCM10}
     }{}
     % SourceSansPro & SourceSerifPro & SourceCodePro----------------
     \ifdefstring{\LinkWilder@en}{Source}{
@@ -618,6 +620,12 @@
     \renewcommand{\huge}{\@setfontsize\huge{18bp}{19.8bp}}% 小二 (18*1.1=19.8)
     \renewcommand{\Huge}{\@setfontsize\Huge{22bp}{24.2bp}}% 二号 (22*1.1=24.2)
 }
+% 标题字体定义-------------------------------------------------------------------
+\newcommand{\bfsf}{
+\ifdefstring{\LinkWilder@bfsf}{bf}{\bfseries}{}
+\ifdefstring{\LinkWilder@bfsf}{sf}{\sffamily}{}
+\ifdefstring{\LinkWilder@bfsf}{bfsf}{\bfseries\sffamily}{}
+}
 % 文档类样式设置=================================================================
 \RequirePackage{tikz}
 \RequirePackage{geometry}
@@ -677,8 +685,8 @@
 \setbeamerfont{tiny structure}{family=\rmfamily}
 \setbeamerfont{structure}{family=\sffamily}
 % color-----------------------------------------------------------------------
-\definecolor{lyn}{rgb}{0.1,0.2,0.2}
-\setbeamercolor{structure}{fg=lyn}
+\definecolor{link}{rgb}{0.1,0.2,0.2}
+\setbeamercolor{structure}{fg=link}
 \setbeamercolor{titlelike}{parent=palette primary,fg=white}
 
 \setbeamercolor{palette primary}{use=structure,bg=structure.fg}
@@ -725,7 +733,7 @@
     \newpage\null\vskip 1em
     \begin{center}
     \let \footnote \thanks
-    {\LARGE\sffamily \@title \par} \vskip 1em
+    {\LARGE\bfsf \@title \par} \vskip 1em
     \ifx\@subtitle\@empty
     \else
         \ifdefstring{\LinkWilder@sc}{None}
@@ -742,43 +750,55 @@
 % abstract环境设置--------------------------------------------------------------
 \renewenvironment{abstract}{
 \begin{center}
-    {\sffamily \abstractname\vspace{-0.5em}}
+    {\bfsf \abstractname\vspace{-0.5em}}
 \end{center}
 \quotation}{\endquotation}
 % appendix命令设置--------------------------------------------------------------
 \renewcommand{\appendix}[1]{
 \setcounter{section}{0}
 \begin{center}
-{\huge\sffamily #1 \par} \vskip 1em
+{\huge\bfsf #1 \par}
+\vskip 1em
 \end{center}
+}
+% 图片表格标题设置---------------------------------------------------------------
+\RequirePackage{caption}
+\ifdefstring{\LinkWilder@bfsf}{bf}{\captionsetup{font={bf}}}{}
+\ifdefstring{\LinkWilder@bfsf}{sf}{\captionsetup{font={sf}}}{}
+\ifdefstring{\LinkWilder@bfsf}{bfsf}{\captionsetup{font={bf,sf}}}{}
+\captionsetup{
+    % labelfont={sf,bf},
+    % textfont={sf,bf},
+    aboveskip=0pt,
+    belowskip=0pt
 }
 % 中英文章节标题设置-------------------------------------------------------------
 \RequirePackage{titlesec}
 \ifdefstring{\LinkWilder@sc}{None}{
-    \titleformat{\section}{\Large\sffamily}{\thesection}{0em}{}[]
+    \titleformat{\section}{\Large\bfsf}{\thesection}{0em}{}[]
     \titlespacing*{\section}{0em}{1em}{1em}
-    \titleformat{\subsection}{\normalsize\sffamily}{\thesubsection}{0em}{}[]
+    \titleformat{\subsection}{\normalsize\bfsf}{\thesubsection}{0em}{}[]
     \titlespacing*{\subsection}{0em}{0.5em}{0.5em}
-    \titleformat{\subsubsection}{\normalsize\sffamily}{\thesubsubsection}{0em}{}[]
+    \titleformat{\subsubsection}{\normalsize\bfsf}{\thesubsubsection}{0em}{}[]
     \titlespacing*{\subsubsection}{0em}{0.5em}{0.5em}
-    \titleformat{\paragraph}[runin]{\normalsize\sffamily}{\theparagraph}{0em}{}[]
+    \titleformat{\paragraph}[runin]{\normalsize\bfsf}{\theparagraph}{0em}{}[]
     \titlespacing*{\paragraph}{0em}{0.5em}{1em}
-    \titleformat{\subparagraph}[runin]{\normalsize\sffamily}{\theparagraph}{0em}{}[]
+    \titleformat{\subparagraph}[runin]{\normalsize\bfsf}{\theparagraph}{0em}{}[]
     \titlespacing*{\subparagraph}{2em}{0.5em}{1em}
     
     \renewcommand{\thesection}{\arabic{section}. }
     \renewcommand{\thesubsection}{\arabic{section}.\arabic{subsection}. }
     \renewcommand{\thesubsubsection}{\arabic{section}.\arabic{subsection}.\arabic{subsubsection}. }
 }{
-    \titleformat{\section}{\Large\sffamily\centering}{\CTEXthesection}{0em}{}[]
+    \titleformat{\section}{\Large\bfsf\centering}{\CTEXthesection}{0em}{}[]
     \titlespacing{\section}{0em}{1em}{1em}
-    \titleformat{\subsection}{\normalsize\sffamily}{\CTEXthesubsection}{0em}{}[]
+    \titleformat{\subsection}{\normalsize\bfsf}{\CTEXthesubsection}{0em}{}[]
     \titlespacing{\subsection}{2em}{0.5em}{0.5em}
-    \titleformat{\subsubsection}{\normalsize\sffamily}{\CTEXthesubsubsection}{0em}{}[]
+    \titleformat{\subsubsection}{\normalsize\bfsf}{\CTEXthesubsubsection}{0em}{}[]
     \titlespacing{\subsubsection}{2em}{0.5em}{0.5em}
-    \titleformat{\paragraph}[runin]{\normalsize\sffamily}{\CTEXtheparagraph}{0em}{}[]
+    \titleformat{\paragraph}[runin]{\normalsize\bfsf}{\CTEXtheparagraph}{0em}{}[]
     \titlespacing*{\paragraph}{0em}{0.5em}{1em}
-    \titleformat{\subparagraph}[runin]{\normalsize\sffamily}{\CTEXthesubparagraph}{0em}{}[]
+    \titleformat{\subparagraph}[runin]{\normalsize\bfsf}{\CTEXthesubparagraph}{0em}{}[]
     \titlespacing*{\subparagraph}{2em}{0.5em}{1em}
     
     \renewcommand{\CTEXthesection}{\chinese{section}、}
