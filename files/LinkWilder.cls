@@ -785,11 +785,4 @@
     \renewcommand{\CTEXthesubsection}{（\chinese{subsection}）}
     \renewcommand{\CTEXthesubsubsection}{\arabic{subsubsection}. }
 }
-% 公式编号----------------------------------------------------------------------
-\RequirePackage{amsmath}
-% \numberwithin{equation}{section}
-}{}
-% 其他设置======================================================================
-\RequirePackage{graphicx}
-\RequirePackage{makecell}
-\RequirePackage[colorlinks=true,linkcolor=blue,bookmarksnumbered=true]{hyperref}
+}
