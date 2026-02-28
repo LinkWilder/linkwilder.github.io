@@ -263,7 +263,7 @@
             Extension = .otf,
             UprightFont = *-Regular,
             BoldFont = *-Bold,
-            ItalicFont = *-BookOblique,
+            ItalicFont = *-Oblique,
             BoldItalicFont = *-BoldOblique
         ]{NewCMSans10}
         \setmonofont[
@@ -275,7 +275,7 @@
         ]{NewCMMono10}
         \newfontfamily\EngMain[
             Extension = .otf,
-            UprightFont = *-Book
+            UprightFont = *-Regular
         ]{NewCM10}
     }{}
     % NewComputerModernSans---------------------------------------------------
@@ -284,14 +284,14 @@
             Extension = .otf,
             UprightFont = *-Regular,
             BoldFont = *-Bold,
-            ItalicFont = *-BookOblique,
+            ItalicFont = *-Oblique,
             BoldItalicFont = *-BoldOblique
         ]{NewCMSans10}
         \setsansfont[
             Extension = .otf,
             UprightFont = *-Regular,
             BoldFont = *-Bold,
-            ItalicFont = *-BookOblique,
+            ItalicFont = *-Oblique,
             BoldItalicFont = *-BoldOblique
         ]{NewCMSans10}
         \setmonofont[
@@ -303,7 +303,7 @@
         ]{NewCMMono10}
         \newfontfamily\EngMain[
             Extension = .otf,
-            UprightFont = *-Book
+            UprightFont = *-Regular
         ]{NewCMSans10}
     }{}
     % TeXGyreHeros & TeXGyrePagellaX & TeXGyreCursor--------------------------
@@ -391,7 +391,7 @@
         ]{texgyrecursor}
         \newfontfamily\EngMain[
             Extension = .otf,
-            UprightFont = *-Book
+            UprightFont = *-Regular
         ]{NewCM10}
     }{}
     % SourceSansPro & SourceSerifPro & SourceCodePro--------------------------
@@ -543,9 +543,9 @@
     \ifdefstring{\LinkWilder@ma}{STIX}{
         \setmathfont[Extension = .otf]{STIXTwoMath-Regular}
     }{}
-    % NewCMMath-Book----------------------------------------------------------
+    % NewCMMath-Regular-------------------------------------------------------
     \ifdefstring{\LinkWilder@ma}{NCM}{
-        \setmathfont[Extension = .otf]{NewCMMath-Book}
+        \setmathfont[Extension = .otf]{NewCMMath-Regular}
     }{}
     % NewCMSansMath-----------------------------------------------------------
     \ifdefstring{\LinkWilder@ma}{NCMS}{
