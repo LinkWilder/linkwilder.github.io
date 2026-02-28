@@ -250,27 +250,27 @@
 \newcommand{\setenfontwithoption}{
     % None--------------------------------------------------------------------
     \ifdefstring{\LinkWilder@en}{None}{}{}
-    % NewComputerModernBook---------------------------------------------------
+    % NewComputerModern-------------------------------------------------------
     \ifdefstring{\LinkWilder@en}{NCM}{
         \setmainfont[
             Extension = .otf,
-            UprightFont = *-Book,
+            UprightFont = *-Regular,
             BoldFont = *-Bold,
-            ItalicFont = *-BookItalic,
+            ItalicFont = *-Italic,
             BoldItalicFont = *-BoldItalic
         ]{NewCM10}
         \setsansfont[
             Extension = .otf,
-            UprightFont = *-Book,
+            UprightFont = *-Regular,
             BoldFont = *-Bold,
             ItalicFont = *-BookOblique,
             BoldItalicFont = *-BoldOblique
         ]{NewCMSans10}
         \setmonofont[
             Extension = .otf,
-            UprightFont = *-Book,
+            UprightFont = *-Regular,
             BoldFont = *-Bold,
-            ItalicFont = *-BookItalic,
+            ItalicFont = *-Italic,
             BoldItalicFont = *-BoldOblique
         ]{NewCMMono10}
         \newfontfamily\EngMain[
@@ -278,27 +278,27 @@
             UprightFont = *-Book
         ]{NewCM10}
     }{}
-    % NewComputerModernSansBook-----------------------------------------------
+    % NewComputerModernSans---------------------------------------------------
     \ifdefstring{\LinkWilder@en}{NCMS}{
         \setmainfont[
             Extension = .otf,
-            UprightFont = *-Book,
+            UprightFont = *-Regular,
             BoldFont = *-Bold,
             ItalicFont = *-BookOblique,
             BoldItalicFont = *-BoldOblique
         ]{NewCMSans10}
         \setsansfont[
             Extension = .otf,
-            UprightFont = *-Book,
+            UprightFont = *-Regular,
             BoldFont = *-Bold,
             ItalicFont = *-BookOblique,
             BoldItalicFont = *-BoldOblique
         ]{NewCMSans10}
         \setmonofont[
             Extension = .otf,
-            UprightFont = *-Book,
+            UprightFont = *-Regular,
             BoldFont = *-Bold,
-            ItalicFont = *-BookItalic,
+            ItalicFont = *-Italic,
             BoldItalicFont = *-BoldOblique
         ]{NewCMMono10}
         \newfontfamily\EngMain[
@@ -366,13 +366,13 @@
             UprightFont = *-Regular
         ]{TeXGyreTermesX}
     }{}
-    % TeXGyreHeros & NewComputerModernSansBook & TeXGyreCursor----------------
+    % TeXGyreHeros & NewComputerModernSans & TeXGyreCursor--------------------
     \ifdefstring{\LinkWilder@en}{TGNCM}{
         \setmainfont[
             Extension = .otf,
-            UprightFont = *-Book,
+            UprightFont = *-Regular,
             BoldFont = *-Bold,
-            ItalicFont = *-BookItalic,
+            ItalicFont = *-Italic,
             BoldItalicFont = *-BoldItalic
         ]{NewCM10}
         \setsansfont[
@@ -394,7 +394,7 @@
             UprightFont = *-Book
         ]{NewCM10}
     }{}
-    % SourceSansPro & SourceSerifPro & SourceCodePro----------------
+    % SourceSansPro & SourceSerifPro & SourceCodePro--------------------------
     \ifdefstring{\LinkWilder@en}{Source}{
         \setmainfont[
             Extension = .otf,
@@ -422,7 +422,7 @@
             UprightFont = *-Regular
         ]{SourceSerifPro}
     }{}
-    % Roboto & RobotoSerif & RobotoMono----------------
+    % Roboto & RobotoSerif & RobotoMono---------------------------------------
     \ifdefstring{\LinkWilder@en}{Roboto}{
         \setmainfont[
             Extension = .otf,
