@@ -5,7 +5,7 @@
 % en = [None,NCM,NCMS,TGPX,TGTX,TGNCM,Source,Roboto,APC,ATC,ACC]
 % ma = [None,STIX,NCM,NCMS,TGP,TGT]
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{LinkWilder}
+\ProvidesClass{LinkWilder}[2026/02/28/16/15 v1.0]
 % 文档类选项命令定义=============================================================
 \RequirePackage{kvoptions}
 \RequirePackage{etoolbox}
@@ -250,60 +250,60 @@
 \newcommand{\setenfontwithoption}{
     % None--------------------------------------------------------------------
     \ifdefstring{\LinkWilder@en}{None}{}{}
-    % NewComputerModern-------------------------------------------------------
+    % NewComputerModernBook---------------------------------------------------
     \ifdefstring{\LinkWilder@en}{NCM}{
         \setmainfont[
             Extension = .otf,
-            UprightFont = *-Regular,
+            UprightFont = *-Book,
             BoldFont = *-Bold,
-            ItalicFont = *-Italic,
+            ItalicFont = *-BookItalic,
             BoldItalicFont = *-BoldItalic
         ]{NewCM10}
         \setsansfont[
             Extension = .otf,
-            UprightFont = *-Regular,
+            UprightFont = *-Book,
             BoldFont = *-Bold,
-            ItalicFont = *-Oblique,
+            ItalicFont = *-BookOblique,
             BoldItalicFont = *-BoldOblique
         ]{NewCMSans10}
         \setmonofont[
             Extension = .otf,
-            UprightFont = *-Regular,
+            UprightFont = *-Book,
             BoldFont = *-Bold,
-            ItalicFont = *-Italic,
+            ItalicFont = *-BookItalic,
             BoldItalicFont = *-BoldOblique
         ]{NewCMMono10}
         \newfontfamily\EngMain[
             Extension = .otf,
-            UprightFont = *-Regular
+            UprightFont = *-Book
         ]{NewCM10}
     }{}
-    % NewComputerModernSans---------------------------------------------------
+    % NewComputerModernSansBook-----------------------------------------------
     \ifdefstring{\LinkWilder@en}{NCMS}{
         \setmainfont[
             Extension = .otf,
-            UprightFont = *-Regular,
+            UprightFont = *-Book,
             BoldFont = *-Bold,
-            ItalicFont = *-Oblique,
+            ItalicFont = *-BookOblique,
             BoldItalicFont = *-BoldOblique
         ]{NewCMSans10}
         \setsansfont[
             Extension = .otf,
-            UprightFont = *-Regular,
+            UprightFont = *-Book,
             BoldFont = *-Bold,
-            ItalicFont = *-Oblique,
+            ItalicFont = *-BookOblique,
             BoldItalicFont = *-BoldOblique
         ]{NewCMSans10}
         \setmonofont[
             Extension = .otf,
-            UprightFont = *-Regular,
+            UprightFont = *-Book,
             BoldFont = *-Bold,
-            ItalicFont = *-Italic,
+            ItalicFont = *-BookItalic,
             BoldItalicFont = *-BoldOblique
         ]{NewCMMono10}
         \newfontfamily\EngMain[
             Extension = .otf,
-            UprightFont = *-Regular
+            UprightFont = *-Book
         ]{NewCMSans10}
     }{}
     % TeXGyreHeros & TeXGyrePagellaX & TeXGyreCursor--------------------------
@@ -366,13 +366,13 @@
             UprightFont = *-Regular
         ]{TeXGyreTermesX}
     }{}
-    % TeXGyreHeros & NewComputerModernSans & TeXGyreCursor--------------------
+    % TeXGyreHeros & NewComputerModernSansBook & TeXGyreCursor----------------
     \ifdefstring{\LinkWilder@en}{TGNCM}{
         \setmainfont[
             Extension = .otf,
-            UprightFont = *-Regular,
+            UprightFont = *-Book,
             BoldFont = *-Bold,
-            ItalicFont = *-Italic,
+            ItalicFont = *-BookItalic,
             BoldItalicFont = *-BoldItalic
         ]{NewCM10}
         \setsansfont[
@@ -391,7 +391,7 @@
         ]{texgyrecursor}
         \newfontfamily\EngMain[
             Extension = .otf,
-            UprightFont = *-Regular
+            UprightFont = *-Book
         ]{NewCM10}
     }{}
     % SourceSansPro & SourceSerifPro & SourceCodePro--------------------------
@@ -543,9 +543,9 @@
     \ifdefstring{\LinkWilder@ma}{STIX}{
         \setmathfont[Extension = .otf]{STIXTwoMath-Regular}
     }{}
-    % NewCMMath-Regular-------------------------------------------------------
+    % NewCMMath-Book----------------------------------------------------------
     \ifdefstring{\LinkWilder@ma}{NCM}{
-        \setmathfont[Extension = .otf]{NewCMMath-Regular}
+        \setmathfont[Extension = .otf]{NewCMMath-Book}
     }{}
     % NewCMSansMath-----------------------------------------------------------
     \ifdefstring{\LinkWilder@ma}{NCMS}{
