@@ -5,7 +5,7 @@
 % en = [None,NCM,NCMS,TGPX,TGTX,TGNCM,Source,Roboto,APC,ATC,ACC]
 % ma = [None,STIX,NCM,NCMS,TGP,TGT]
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{LinkWilder}[2026/02/02/20/40 v1.0]
+\ProvidesClass{LinkWilder}
 % 文档类选项命令定义=============================================================
 \RequirePackage{kvoptions}
 \RequirePackage{etoolbox}
