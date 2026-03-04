@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Link Wilder</title>
+    <!-- mathjax用于排版LaTeX公式 -->
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    <!-- highlight用于代码高亮 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/github.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/latex.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/python.min.js"></script>
+    <script>document.addEventListener('DOMContentLoaded', () => hljs.highlightAll());</script>
+    <!-- 自定义css和js文件 -->
+    <link rel="stylesheet" href="../cssjs/style.css">
+    <script src="../cssjs/javascript.js"></script>
+    <!-- 插入图标 -->
+    <link rel="shortcut icon" href="../assets/Link.svg">
+</head>
+<body class="line-numbers">
+    <div class="body-container">
+        <div class="welcome">
+            <div class="welcome-item" style="display: inline-block;">Don't think, just do it!</div>
+            <div class="welcome-item" style="display: inline-block;">Thanks to GitHub!</div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Home Page</a></li>
+                <li>
+                    <a href="../pages/python.html">Python▾</a>
+                    <ul>
+                        <li><a href="../pages/python-install.html">Python的安装</a></li>
+                        <li><a href="../pages/python-standard.html">Python的标准库</a></li>
+                        <li><a href="../pages/python-third.html">Python的第三方库</a></li>
+                    </ul>
+                </li>
+                <li><a href="../pages/latex.html">LaTeX</a></li>
+                <li><a href="../pages/economics.html">Economics</a></li>
+                <li><a href="../pages/aboutme.html">About me</a></li>
+            </ul>
+        </nav>
+        <div class="main-container">
+            <div class="left-container" id="current-contents">
+                由javascript.js插入各个章节的标题内容
+            </div>
+            <div class="middle-container">
+                <!-- 修改内容如下 --><h1 id="python-常用第三方库数据分析三剑客">Python
+常用第三方库（数据分析三剑客）</h1>
+<p>Python
+的强大在很大程度上归功于其丰富的第三方库生态。在数据科学、数据分析和机器学习领域，有三个库被誉为“数据分析三剑客”：<strong>NumPy</strong>、<strong>Pandas</strong>
+和 <strong>Matplotlib</strong>。</p>
+<h2 id="安装第三方库">1. 安装第三方库</h2>
+<p>在使用这些库之前，需要先通过 Python 的包管理工具 <code>pip</code>
+进行安装。打开命令行或终端，运行以下命令：</p>
+<pre class="bash"><code>pip install numpy pandas matplotlib</code></pre>
+<hr />
+<h2 id="numpy强大的数值计算库">2. NumPy：强大的数值计算库</h2>
+<p><strong>NumPy</strong> (Numerical Python) 是 Python
+科学计算的基础库。它提供了一个高性能的多维数组对象（<code>ndarray</code>），以及用于处理这些数组的各种工具和数学函数。</p>
+<h3 id="主要特点">主要特点</h3>
+<ul>
+<li>快速且高效的多维数组对象 <code>ndarray</code>。</li>
+<li>执行数组元素的数学运算，无需编写循环（广播机制）。</li>
+<li>线性代数、随机数生成、傅里叶变换等功能。</li>
+</ul>
+<h3 id="基本使用示例">基本使用示例</h3>
+<pre class="python"><code>import numpy as np
+
+# 创建一个一维数组
+arr1 = np.array([1, 2, 3, 4, 5])
+print(&quot;一维数组:&quot;, arr1)
+
+# 创建一个 2x3 的二维数组（矩阵）
+arr2 = np.array([[1, 2, 3], [4, 5, 6]])
+print(&quot;二维数组:\n&quot;, arr2)
+
+# 数组的数学运算（广播机制）
+print(&quot;数组中每个元素加 10:&quot;, arr1 + 10)
+print(&quot;两个数组相乘:\n&quot;, arr2 * 2)
+
+# 常用的内置方法
+print(&quot;数组的平均值:&quot;, np.mean(arr1))
+print(&quot;生成随机数组:\n&quot;, np.random.rand(3, 3))</code></pre>
+<hr />
+<h2 id="pandas灵活的数据处理与分析库">3.
+Pandas：灵活的数据处理与分析库</h2>
+<p><strong>Pandas</strong> 构建在 NumPy 之上，为 Python
+提供了快速、灵活且富有表现力的数据结构，旨在使“关系型”或“标签型”数据的处理既简单又直观。它是进行数据清洗和分析的核心工具。</p>
+<h3 id="主要数据结构">主要数据结构</h3>
+<ul>
+<li><strong>Series</strong>：一维带标签的数组，可以存储任何数据类型。</li>
+<li><strong>DataFrame</strong>：二维的表格型数据结构，包含一组有序的列，每列可以是不同的值类型（类似于
+Excel 表格或 SQL 表）。</li>
+</ul>
+<h3 id="基本使用示例-1">基本使用示例</h3>
+<pre class="python"><code>import pandas as pd
+
+# 1. 创建 Series
+s = pd.Series([10, 20, 30], index=[&#39;a&#39;, &#39;b&#39;, &#39;c&#39;])
+print(&quot;Series:\n&quot;, s)
+
+# 2. 创建 DataFrame
+data = {
+    &#39;姓名&#39;: [&#39;张三&#39;, &#39;李四&#39;, &#39;王五&#39;],
+    &#39;年龄&#39;: [25, 30, 28],
+    &#39;城市&#39;: [&#39;北京&#39;, &#39;上海&#39;, &#39;广州&#39;]
+}
+df = pd.DataFrame(data)
+print(&quot;\nDataFrame:\n&quot;, df)
+
+# 3. 数据访问与基本操作
+print(&quot;\n获取&#39;姓名&#39;列:\n&quot;, df[&#39;姓名&#39;])
+print(&quot;\n获取第一行数据:\n&quot;, df.iloc[0])
+
+# 4. 基本统计信息
+# 增加一列薪水
+df[&#39;薪水&#39;] = [8000, 12000, 10000]
+print(&quot;\n描述性统计信息:\n&quot;, df.describe())</code></pre>
+<hr />
+<h2 id="matplotlib经典的数据可视化库">4.
+Matplotlib：经典的数据可视化库</h2>
+<p><strong>Matplotlib</strong> 是 Python 中最常用的 2D
+绘图库。它可以生成出版质量级别的图形，如折线图、散点图、柱状图、直方图等。通常我们会使用其子模块
+<code>pyplot</code>，它提供了一套类似 MATLAB 的绘图 API。</p>
+<h3 id="主要特点-1">主要特点</h3>
+<ul>
+<li>能够绘制各种高质量的静态、动态、交互式图表。</li>
+<li>高度可定制化，可以精细控制图表的每一个元素（标题、坐标轴、图例、颜色等）。</li>
+</ul>
+<h3 id="基本使用示例-2">基本使用示例</h3>
+<pre class="python"><code>import matplotlib.pyplot as plt
+import numpy as np
+
+# 准备数据
+x = np.linspace(0, 10, 100) # 生成 0 到 10 之间的 100 个均匀分布的数
+y1 = np.sin(x)
+y2 = np.cos(x)
+
+# 创建图形
+plt.figure(figsize=(8, 5)) # 设置图表大小
+
+# 绘制折线图
+plt.plot(x, y1, label=&#39;sin(x)&#39;, color=&#39;blue&#39;, linestyle=&#39;-&#39;)
+plt.plot(x, y2, label=&#39;cos(x)&#39;, color=&#39;red&#39;, linestyle=&#39;--&#39;)
+
+# 添加图表元素
+plt.title(&#39;Sin and Cos Waves&#39;) # 标题
+plt.xlabel(&#39;X-axis&#39;)           # X轴标签
+plt.ylabel(&#39;Y-axis&#39;)           # Y轴标签
+plt.legend()                   # 显示图例
+plt.grid(True)                 # 显示网格
+
+# 显示图表
+plt.show()</code></pre>
+<h3 id="总结">总结</h3>
+<p>这三个库通常配合使用：<strong>NumPy</strong>
+提供底层数据结构和高效计算，<strong>Pandas</strong>
+负责数据的读取、清洗、组织和分析，<strong>Matplotlib</strong>
+则将分析结果以直观的图形展现出来。掌握这三个库是迈入 Python
+数据分析和人工智能领域的第一步。</p>
+                <!-- 修改内容如上 -->
+            </div>
+            <div class="right-container">
+                <img src="../assets/LW_BS_WithoutBoard.svg">
+                <p>Link Wilder</p>
+                <div class="personl-info">
+                    <div class="info-ico"><img src="../assets/GitHub_Lockup_Black.svg" width="80"></div>
+                    <div class="info-text"><a href="https://github.com/LinkWilder">LinkWilder</a></div>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <div class="footer-item">Thanks to</div>
+            <div class="footer-item">GitHub Pages</div>
+            <div class="footer-item">Prism</div>
+            <div class="footer-item">MathJax</div>
+        </footer>
+    </div>
+</body>
+</html>

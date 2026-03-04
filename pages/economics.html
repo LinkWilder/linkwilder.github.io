@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Link Wilder</title>
+    <!-- mathjax用于排版LaTeX公式 -->
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    <!-- highlight用于代码高亮 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/github.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/latex.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/python.min.js"></script>
+    <script>document.addEventListener('DOMContentLoaded', () => hljs.highlightAll());</script>
+    <!-- 自定义css和js文件 -->
+    <link rel="stylesheet" href="../cssjs/style.css">
+    <script src="../cssjs/javascript.js"></script>
+    <!-- 插入图标 -->
+    <link rel="shortcut icon" href="../assets/Link.svg">
+</head>
+<body class="line-numbers">
+    <div class="body-container">
+        <div class="welcome">
+            <div class="welcome-item" style="display: inline-block;">Don't think, just do it!</div>
+            <div class="welcome-item" style="display: inline-block;">Thanks to GitHub!</div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Home Page</a></li>
+                <li>
+                    <a href="../pages/python.html">Python▾</a>
+                    <ul>
+                        <li><a href="../pages/python-install.html">Python的安装</a></li>
+                        <li><a href="../pages/python-standard.html">Python的标准库</a></li>
+                        <li><a href="../pages/python-third.html">Python的第三方库</a></li>
+                    </ul>
+                </li>
+                <li><a href="../pages/latex.html">LaTeX</a></li>
+                <li><a href="../pages/economics.html">Economics</a></li>
+                <li><a href="../pages/aboutme.html">About me</a></li>
+            </ul>
+        </nav>
+        <div class="main-container">
+            <div class="left-container" id="current-contents">
+                由javascript.js插入各个章节的标题内容
+            </div>
+            <div class="middle-container">
+                <!-- 修改内容如下 --><h1 id="宏观经济学">宏观经济学</h1>
+<h2 id="什么是宏观经济学">什么是宏观经济学</h2>
+<p><strong>宏观经济学（Macroeconomics）</strong>
+是经济学的一个分支，研究的是经济体的整体行为和表现。与微观经济学关注个体消费者和企业的决策不同，宏观经济学关注的是国家乃至全球层面的经济现象，包括：</p>
+<ul>
+<li>国民收入与产出</li>
+<li>失业与就业</li>
+<li>通货膨胀与物价水平</li>
+<li>经济增长与发展</li>
+<li>国际贸易与资本流动</li>
+</ul>
+<blockquote>
+<p>宏观经济学的奠基人通常被认为是 <strong>约翰·梅纳德·凯恩斯（John
+Maynard Keynes）</strong>，他在 1936
+年出版的《就业、利息和货币通论》中系统性地提出了宏观经济分析框架。</p>
+</blockquote>
+<h2 id="核心概念">核心概念</h2>
+<h3 id="国内生产总值gdp">国内生产总值（GDP）</h3>
+<p><strong>GDP（Gross Domestic Product）</strong>
+是衡量一个国家在一定时期内生产的所有最终商品和服务的市场价值总和，是衡量经济规模和健康状况的最重要指标。</p>
+<p>GDP 的计算方法有三种：</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>方法</th>
+<th>公式</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>支出法</strong></td>
+<td><span class="math inline">\(GDP = C + I + G + (X - M)\)</span></td>
+<td>C=消费, I=投资, G=政府支出, X=出口, M=进口</td>
+</tr>
+<tr>
+<td><strong>收入法</strong></td>
+<td><span class="math inline">\(GDP = W + R + i + \pi + D +
+T\)</span></td>
+<td>W=工资, R=租金, i=利息, π=利润, D=折旧, T=间接税</td>
+</tr>
+<tr>
+<td><strong>生产法</strong></td>
+<td><span class="math inline">\(GDP = \sum
+\text{各行业增加值}\)</span></td>
+<td>各产业产出减去中间投入</td>
+</tr>
+</tbody>
+</table>
+<p><strong>名义 GDP vs 实际 GDP：</strong></p>
+<ul>
+<li><strong>名义 GDP</strong>：按当年价格计算，包含价格变动的影响</li>
+<li><strong>实际
+GDP</strong>：剔除价格变动因素，以基期价格计算，更能反映真实经济增长</li>
+</ul>
+<p><span class="math display">\[\text{实际 GDP} = \frac{\text{名义
+GDP}}{\text{GDP 平减指数}} \times 100\]</span></p>
+<h3 id="通货膨胀">通货膨胀</h3>
+<p><strong>通货膨胀（Inflation）</strong>
+是指一般物价水平持续上升的现象。适度的通胀（通常 2%
+左右）被认为是健康经济的标志。</p>
+<p>常用的通胀衡量指标：</p>
+<ul>
+<li><strong>CPI（消费者价格指数）</strong>：衡量一篮子消费品和服务的价格变动</li>
+<li><strong>PPI（生产者价格指数）</strong>：衡量生产者出厂价格的变动</li>
+<li><strong>GDP 平减指数</strong>：衡量所有商品和服务的价格变动</li>
+</ul>
+<p><span class="math display">\[\text{通胀率} = \frac{CPI_t -
+CPI_{t-1}}{CPI_{t-1}} \times 100\%\]</span></p>
+<p><strong>通胀的类型：</strong></p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>原因</th>
+<th>特征</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>需求拉动型</td>
+<td>总需求过度增长</td>
+<td>“太多的货币追逐太少的商品”</td>
+</tr>
+<tr>
+<td>成本推动型</td>
+<td>生产成本上升</td>
+<td>原材料、工资上涨推动物价</td>
+</tr>
+<tr>
+<td>内生型（惯性）</td>
+<td>通胀预期自我实现</td>
+<td>工资-价格螺旋</td>
+</tr>
+</tbody>
+</table>
+<h3 id="失业">失业</h3>
+<p><strong>失业率</strong> 是劳动力市场健康状况的关键指标。</p>
+<p><span class="math display">\[\text{失业率} =
+\frac{\text{失业人数}}{\text{劳动力总数}} \times 100\%\]</span></p>
+<p>失业的主要类型：</p>
+<ul>
+<li><strong>摩擦性失业</strong>：劳动者在转换工作过程中的短期失业，是正常现象</li>
+<li><strong>结构性失业</strong>：由于经济结构变化、技术进步导致的技能不匹配</li>
+<li><strong>周期性失业</strong>：由于经济衰退导致的需求不足型失业</li>
+<li><strong>自然失业率</strong>：摩擦性失业 + 结构性失业，通常在 4%–6%
+之间</li>
+</ul>
+<blockquote>
+<p><strong>菲利普斯曲线（Phillips Curve）</strong>
+描述了通胀率与失业率之间的短期反向关系：失业率下降时，通胀率倾向于上升，反之亦然。</p>
+</blockquote>
+<hr />
+<h2 id="主要经济指标">主要经济指标</h2>
+<h3 id="先行指标leading-indicators">先行指标（Leading Indicators）</h3>
+<p>在经济变化之前发出信号：</p>
+<ul>
+<li>股票市场指数</li>
+<li>制造业新订单</li>
+<li>建筑许可证数量</li>
+<li>消费者信心指数</li>
+<li>收益率曲线（利率期限结构）</li>
+</ul>
+<h3 id="同步指标coincident-indicators">同步指标（Coincident
+Indicators）</h3>
+<p>与经济同步变化：</p>
+<ul>
+<li>工业生产指数</li>
+<li>个人收入（扣除转移支付）</li>
+<li>非农就业人数</li>
+<li>制造业和贸易销售额</li>
+</ul>
+<h3 id="滞后指标lagging-indicators">滞后指标（Lagging Indicators）</h3>
+<p>在经济变化之后才反映出来：</p>
+<ul>
+<li>平均失业持续时间</li>
+<li>企业贷款余额</li>
+<li>劳动力单位成本变化</li>
+<li>银行优惠贷款利率</li>
+</ul>
+<hr />
+<h2 id="宏观经济学主要学派">宏观经济学主要学派</h2>
+<h3 id="古典经济学classical-economics">古典经济学（Classical
+Economics）</h3>
+<ul>
+<li><strong>代表人物</strong>：亚当·斯密、大卫·李嘉图、让-巴蒂斯特·萨伊</li>
+<li><strong>核心观点</strong>：市场具有自我调节能力，价格和工资灵活调整可使经济自动回到充分就业均衡</li>
+<li><strong>萨伊定律</strong>：“供给创造自身的需求”</li>
+<li><strong>政策主张</strong>：政府应尽量减少干预（自由放任）</li>
+</ul>
+<h3 id="凯恩斯主义keynesian-economics">凯恩斯主义（Keynesian
+Economics）</h3>
+<ul>
+<li><strong>代表人物</strong>：约翰·梅纳德·凯恩斯</li>
+<li><strong>核心观点</strong>：
+<ul>
+<li>短期内价格和工资具有粘性，市场不能自动出清</li>
+<li>有效需求不足是经济衰退和失业的主要原因</li>
+<li>经济可能长期处于低于充分就业的均衡状态</li>
+</ul></li>
+<li><strong>政策主张</strong>：政府应通过财政政策（增加支出、减税）来刺激总需求</li>
+</ul>
+<p><span class="math display">\[Y = C(Y - T) + I(r) + G +
+NX\]</span></p>
+<h3 id="货币主义monetarism">货币主义（Monetarism）</h3>
+<ul>
+<li><strong>代表人物</strong>：米尔顿·弗里德曼</li>
+<li><strong>核心观点</strong>：
+<ul>
+<li>货币供应量是影响经济活动和物价水平的最重要因素</li>
+<li>通货膨胀本质上是一种货币现象</li>
+<li>长期菲利普斯曲线是垂直的（自然失业率假说）</li>
+</ul></li>
+<li><strong>政策主张</strong>：央行应保持稳定的货币供应增长率</li>
+</ul>
+<p><span class="math display">\[MV = PY\]</span></p>
+<blockquote>
+<p>其中 M=货币供应量，V=货币流通速度，P=价格水平，Y=实际产出</p>
+</blockquote>
+<h3 id="新古典经济学new-classical-economics">新古典经济学（New Classical
+Economics）</h3>
+<ul>
+<li><strong>代表人物</strong>：罗伯特·卢卡斯、托马斯·萨金特</li>
+<li><strong>核心观点</strong>：
+<ul>
+<li><strong>理性预期假说</strong>：经济主体会利用所有可用信息做出最优预测</li>
+<li><strong>政策无效性命题</strong>：可预期的政策不会对实际产出产生影响</li>
+<li>经济波动主要由供给冲击（如技术变化）驱动</li>
+</ul></li>
+<li><strong>政策主张</strong>：规则性政策优于相机抉择</li>
+</ul>
+<h3 id="新凯恩斯主义new-keynesian-economics">新凯恩斯主义（New Keynesian
+Economics）</h3>
+<ul>
+<li><strong>代表人物</strong>：格里高利·曼昆、约瑟夫·斯蒂格利茨</li>
+<li><strong>核心观点</strong>：
+<ul>
+<li>接受理性预期，但强调市场不完善（信息不对称、菜单成本等）</li>
+<li>价格和工资粘性有微观基础</li>
+<li>短期内货币政策和财政政策仍然有效</li>
+</ul></li>
+<li><strong>政策主张</strong>：适度的政府干预可以改善经济表现</li>
+</ul>
+<hr />
+<h2 id="宏观经济政策">宏观经济政策</h2>
+<h3 id="财政政策fiscal-policy">财政政策（Fiscal Policy）</h3>
+<p>财政政策是政府通过调整 <strong>税收</strong> 和
+<strong>政府支出</strong> 来影响经济的手段。</p>
+<p><strong>扩张性财政政策（经济衰退时）：</strong> - 增加政府支出 - 减税
+- 增加转移支付</p>
+<p><strong>紧缩性财政政策（经济过热时）：</strong> - 减少政府支出 - 增税
+- 减少转移支付</p>
+<p><strong>乘数效应：</strong></p>
+<p><span class="math display">\[\text{财政乘数} = \frac{1}{1 - MPC
+\times (1 - t)}\]</span></p>
+<blockquote>
+<p>其中 MPC 为边际消费倾向，t 为税率。例如，MPC=0.8，t=0.25 时，乘数约为
+2.5，意味着政府每增加 1 元支出，GDP 将增加约 2.5 元。</p>
+</blockquote>
+<p><strong>财政政策的局限性：</strong> -
+时滞问题（认识时滞、决策时滞、执行时滞） -
+挤出效应：政府借贷推高利率，抑制私人投资 - 政府债务可持续性问题</p>
+<h3 id="货币政策monetary-policy">货币政策（Monetary Policy）</h3>
+<p>货币政策是中央银行通过调控 <strong>货币供应量</strong> 和
+<strong>利率</strong> 来影响经济的手段。</p>
+<p><strong>主要工具：</strong></p>
+<table>
+<thead>
+<tr>
+<th>工具</th>
+<th>扩张性操作</th>
+<th>紧缩性操作</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>基准利率</td>
+<td>降低利率</td>
+<td>提高利率</td>
+</tr>
+<tr>
+<td>公开市场操作</td>
+<td>买入国债（释放流动性）</td>
+<td>卖出国债（回收流动性）</td>
+</tr>
+<tr>
+<td>存款准备金率</td>
+<td>降低准备金率</td>
+<td>提高准备金率</td>
+</tr>
+<tr>
+<td>量化宽松（QE）</td>
+<td>大规模购买资产</td>
+<td>缩减资产负债表</td>
+</tr>
+</tbody>
+</table>
+<p><strong>货币政策传导机制：</strong></p>
+<pre><code>央行调整利率 → 市场利率变化 → 投资和消费变化 → 总需求变化 → 产出和物价变化</code></pre>
+<p><strong>泰勒规则（Taylor Rule）：</strong></p>
+<p><span class="math display">\[i = r^* + \pi + 0.5(\pi - \pi^*) + 0.5(y
+- y^*)\]</span></p>
+<blockquote>
+<p>其中
+i=名义利率，r<em>=均衡实际利率，π=实际通胀率，π</em>=目标通胀率，y-y*=产出缺口</p>
+</blockquote>
+<hr />
+<h2 id="经济周期">经济周期</h2>
+<p><strong>经济周期（Business Cycle）</strong>
+是指经济活动在扩张和收缩之间的周期性波动。</p>
+<h3 id="经济周期的四个阶段">经济周期的四个阶段</h3>
+<pre><code>        峰顶
+       /    \
+      /      \
+扩张 /        \ 衰退
+    /          \
+   /            \
+谷底 ———————————— 谷底</code></pre>
+<ol type="1">
+<li><strong>扩张（Expansion）</strong>：GDP
+增长，就业增加，消费和投资活跃</li>
+<li><strong>峰顶（Peak）</strong>：经济活动达到最高点，可能出现过热迹象</li>
+<li><strong>衰退（Recession）</strong>：GDP
+连续两个季度负增长（技术性定义），失业上升</li>
+<li><strong>谷底（Trough）</strong>：经济活动降至最低点，为下一轮复苏奠定基础</li>
+</ol>
+<h3 id="经济衰退的特征">经济衰退的特征</h3>
+<ul>
+<li>GDP 下降</li>
+<li>失业率上升</li>
+<li>消费者和企业信心下降</li>
+<li>工业生产减少</li>
+<li>股票市场下跌</li>
+<li>信贷紧缩</li>
+</ul>
+<h3 id="历史上的重大经济危机">历史上的重大经济危机</h3>
+<table>
+<thead>
+<tr>
+<th>事件</th>
+<th>时间</th>
+<th>主要特征</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>大萧条</td>
+<td>1929–1939</td>
+<td>美国 GDP 下降约 30%，失业率达 25%</td>
+</tr>
+<tr>
+<td>石油危机</td>
+<td>1973, 1979</td>
+<td>滞胀（高通胀 + 高失业 + 低增长）</td>
+</tr>
+<tr>
+<td>亚洲金融危机</td>
+<td>1997–1998</td>
+<td>资本外逃、货币贬值、银行危机</td>
+</tr>
+<tr>
+<td>全球金融危机</td>
+<td>2007–2009</td>
+<td>次贷危机引发全球信贷紧缩和经济衰退</td>
+</tr>
+<tr>
+<td>新冠疫情冲击</td>
+<td>2020</td>
+<td>供给和需求同时受到冲击，全球经济急剧收缩</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="国际宏观经济学">国际宏观经济学</h2>
+<h3 id="国际收支balance-of-payments">国际收支（Balance of
+Payments）</h3>
+<p><span class="math display">\[\text{经常账户} + \text{资本账户} +
+\text{金融账户} = 0\]</span></p>
+<ul>
+<li><strong>经常账户</strong>：商品和服务贸易、初次收入、二次收入</li>
+<li><strong>资本账户</strong>：资本转移、非生产非金融资产交易</li>
+<li><strong>金融账户</strong>：直接投资、证券投资、其他投资、储备资产</li>
+</ul>
+<h3 id="汇率制度">汇率制度</h3>
+<table>
+<thead>
+<tr>
+<th>制度</th>
+<th>特征</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>固定汇率</td>
+<td>政府将汇率固定在某一水平</td>
+<td>金本位制、货币局制度</td>
+</tr>
+<tr>
+<td>浮动汇率</td>
+<td>由市场供求决定汇率</td>
+<td>美元、欧元、日元</td>
+</tr>
+<tr>
+<td>管理浮动</td>
+<td>以市场为基础，央行适度干预</td>
+<td>人民币</td>
+</tr>
+</tbody>
+</table>
+<h3 id="蒙代尔不可能三角">蒙代尔不可能三角</h3>
+<p>一个国家不可能同时实现以下三个目标：</p>
+<ol type="1">
+<li><strong>固定汇率</strong></li>
+<li><strong>资本自由流动</strong></li>
+<li><strong>独立的货币政策</strong></li>
+</ol>
+<blockquote>
+<p>任何国家只能在三者中选择两个，这被称为 <strong>“不可能三角”</strong>
+或 <strong>“三元悖论”</strong>。</p>
+</blockquote>
+<hr />
+<h2 id="重要模型与理论">重要模型与理论</h2>
+<h3 id="is-lm-模型">IS-LM 模型</h3>
+<p>IS-LM 模型是分析财政政策和货币政策效果的经典框架：</p>
+<ul>
+<li><strong>IS
+曲线（投资-储蓄）</strong>：商品市场均衡，利率与产出负相关</li>
+<li><strong>LM
+曲线（流动性偏好-货币供给）</strong>：货币市场均衡，利率与产出正相关</li>
+</ul>
+<p><span class="math display">\[IS: Y = C(Y-T) + I(r) + G\]</span> <span
+class="math display">\[LM: \frac{M}{P} = L(r, Y)\]</span></p>
+<h3 id="ad-as-模型">AD-AS 模型</h3>
+<ul>
+<li><strong>AD（总需求）曲线</strong>：价格水平与总需求量的反向关系</li>
+<li><strong>SRAS（短期总供给）曲线</strong>：短期内向右上方倾斜</li>
+<li><strong>LRAS（长期总供给）曲线</strong>：长期内垂直于潜在产出水平</li>
+</ul>
+<h3 id="索洛增长模型solow-growth-model">索洛增长模型（Solow Growth
+Model）</h3>
+<p>解释长期经济增长的来源：</p>
+<p><span class="math display">\[Y = A \cdot K^\alpha \cdot
+L^{1-\alpha}\]</span></p>
+<blockquote>
+<p>其中
+Y=产出，A=全要素生产率（技术水平），K=资本，L=劳动，α=资本产出弹性</p>
+</blockquote>
+<p><strong>关键结论：</strong> - 资本积累存在边际递减，不能永久驱动增长
+- <strong>技术进步</strong> 是长期经济增长的根本动力 -
+稳态时，人均产出增长率等于技术进步率</p>
+<hr />
+<h2 id="推荐阅读">推荐阅读</h2>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>书籍</th>
+<th>作者</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>《经济学原理：宏观经济学分册》</td>
+<td>N. Gregory Mankiw</td>
+<td>入门级教材，通俗易懂</td>
+</tr>
+<tr>
+<td>《宏观经济学》</td>
+<td>Olivier Blanchard</td>
+<td>中级教材，理论与实践结合</td>
+</tr>
+<tr>
+<td>《就业、利息和货币通论》</td>
+<td>John Maynard Keynes</td>
+<td>宏观经济学奠基之作</td>
+</tr>
+<tr>
+<td>《货币数量论研究》</td>
+<td>Milton Friedman</td>
+<td>货币主义经典著作</td>
+</tr>
+<tr>
+<td>《高级宏观经济学》</td>
+<td>David Romer</td>
+<td>研究生级别教材</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<blockquote>
+<p><em>本文档旨在提供宏观经济学的基础知识概览。宏观经济学是一个不断发展的学科，建议结合最新的经济数据和研究成果进行深入学习。</em></p>
+</blockquote>
+                <!-- 修改内容如上 -->
+            </div>
+            <div class="right-container">
+                <img src="../assets/LW_BS_WithoutBoard.svg">
+                <p>Link Wilder</p>
+                <div class="personl-info">
+                    <div class="info-ico"><img src="../assets/GitHub_Lockup_Black.svg" width="80"></div>
+                    <div class="info-text"><a href="https://github.com/LinkWilder">LinkWilder</a></div>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <div class="footer-item">Thanks to</div>
+            <div class="footer-item">GitHub Pages</div>
+            <div class="footer-item">Prism</div>
+            <div class="footer-item">MathJax</div>
+        </footer>
+    </div>
+</body>
+</html>

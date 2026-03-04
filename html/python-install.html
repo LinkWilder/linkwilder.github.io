@@ -1,0 +1,106 @@
+<h1 id="python的安装">Python的安装</h1>
+<p>在开始 Python
+编程之旅前，我们需要搭建一个好用的开发环境。本指南将指导你如何在 Windows
+系统下安装 Python，并配置两款最受喜爱的开发工具：Visual Studio Code (VS
+Code) 和 Jupyter Notebook。</p>
+<h2 id="安装-python-windows">1. 安装 Python (Windows)</h2>
+<ol type="1">
+<li><strong>下载安装包</strong>：
+<ul>
+<li>访问 Python 官方下载页面：<a
+href="https://www.python.org/downloads/windows/">https://www.python.org/downloads/windows/</a></li>
+<li>选择最新的稳定版本（通常推荐 Python 3.x 版本）。</li>
+<li>下载对应的 <strong>Windows installer (64-bit)</strong>。</li>
+</ul></li>
+<li><strong>运行安装程序</strong>：
+<ul>
+<li>双击下载好的 <code>.exe</code> 安装包。</li>
+<li><strong>【重要步骤】</strong> 在安装界面底部，<strong>务必勾选 “Add
+python.exe to PATH”</strong>（将 Python
+添加到系统环境变量）。这一步非常关键，它允许你在命令行中直接运行
+Python。</li>
+<li>点击 “Install Now”（立即安装）进行默认安装，或者选择 “Customize
+installation”（自定义安装）来修改安装路径。</li>
+</ul></li>
+<li><strong>验证安装</strong>：
+<ul>
+<li>按下 <code>Win + R</code> 键，输入 <code>cmd</code>
+并回车，打开命令提示符。</li>
+<li>输入 <code>python --version</code>，如果显示出 Python
+的版本号，说明安装成功。</li>
+<li>输入 <code>pip --version</code>，确认 Python 的包管理工具 pip
+也已成功安装。</li>
+</ul></li>
+</ol>
+<hr />
+<h2 id="安装与配置-visual-studio-code-vs-code">2. 安装与配置 Visual
+Studio Code (VS Code)</h2>
+<p>VS Code
+是一款由微软开发的免费、开源且极其强大的轻量级代码编辑器，是目前最流行的
+Python 开发工具之一。</p>
+<ol type="1">
+<li><strong>下载与安装</strong>：
+<ul>
+<li>访问官网：<a
+href="https://code.visualstudio.com/">https://code.visualstudio.com/</a></li>
+<li>下载 Windows 版本的安装程序并运行，按照提示完成安装。</li>
+</ul></li>
+<li><strong>安装 Python 扩展</strong>：
+<ul>
+<li>打开 VS Code。</li>
+<li>点击左侧边栏的“扩展”（Extensions）图标，或者按快捷键
+<code>Ctrl+Shift+X</code>。</li>
+<li>在搜索框中输入 <code>Python</code>。</li>
+<li>找到由 Microsoft 提供的官方 Python
+扩展，点击“安装”（Install）。</li>
+<li>这个扩展提供了代码自动补全、语法高亮、代码格式化、调试等强大的功能。</li>
+</ul></li>
+<li><strong>运行第一段 Python 代码</strong>：
+<ul>
+<li>在 VS Code 中新建一个文件，保存为 <code>hello.py</code>。</li>
+<li>输入代码：<code>print("Hello, Python!")</code>。</li>
+<li>点击右上角的三角形运行按钮，或者在终端中输入
+<code>python hello.py</code>，你将在终端看到输出结果。</li>
+</ul></li>
+</ol>
+<hr />
+<h2 id="安装与使用-jupyter-notebook">3. 安装与使用 Jupyter Notebook</h2>
+<p>Jupyter Notebook
+是一个基于网页的交互式计算环境，允许你将代码、文本注释、数学公式和图表组合在同一个文档中。它在数据分析、机器学习和教学领域极为受欢迎。</p>
+<ol type="1">
+<li><strong>通过 pip 安装 Jupyter</strong>：
+<ul>
+<li><p>打开命令提示符 (<code>cmd</code>)。</p></li>
+<li><p>输入以下命令并回车安装 Jupyter：</p>
+<pre class="bash"><code>pip install jupyter</code></pre></li>
+<li><p>建议同时安装上述提到的常用的数据分析包，如
+<code>pip install numpy pandas matplotlib</code>。</p></li>
+</ul></li>
+<li><strong>启动 Jupyter Notebook</strong>：
+<ul>
+<li><p>在命令提示符中输入：</p>
+<pre class="bash"><code>jupyter notebook</code></pre></li>
+<li><p>这将启动 Jupyter
+服务，并自动在你的默认浏览器中打开一个新的标签页，显示 Jupyter
+的控制台界面。</p></li>
+</ul></li>
+<li><strong>创建和编写 Notebook</strong>：
+<ul>
+<li>在 Jupyter 界面右上角点击 “New” -&gt; “Python 3” (或你的 Python
+内核名称)。</li>
+<li>这会创建一个新的 <code>.ipynb</code> 结尾的笔记本文件。</li>
+<li>在单元格 (Cell) 中输入代码，例如
+<code>print("Hello, Jupyter!")</code>。</li>
+<li>按下 <code>Shift + Enter</code>
+运行该单元格的代码，结果会直接显示在单元格下方。</li>
+<li>你还可以将单元格的类型更改为
+“Markdown”，用来编写类似本教程这样的说明性文字。</li>
+</ul></li>
+</ol>
+<h3 id="小结">小结</h3>
+<ul>
+<li><strong>Python</strong> 是核心语言环境。</li>
+<li><strong>VS Code</strong> 适合编写中大型项目、脚本开发和调试。</li>
+<li><strong>Jupyter Notebook</strong>
+适合数据探索、数据分析和可视化展示。</li>
+</ul>

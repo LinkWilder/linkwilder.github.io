@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Link Wilder</title>
+    <!-- mathjax用于排版LaTeX公式 -->
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    <!-- highlight用于代码高亮 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/github.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/latex.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/python.min.js"></script>
+    <script>document.addEventListener('DOMContentLoaded', () => hljs.highlightAll());</script>
+    <!-- 自定义css和js文件 -->
+    <link rel="stylesheet" href="../cssjs/style.css">
+    <script src="../cssjs/javascript.js"></script>
+    <!-- 插入图标 -->
+    <link rel="shortcut icon" href="../assets/Link.svg">
+</head>
+<body class="line-numbers">
+    <div class="body-container">
+        <div class="welcome">
+            <div class="welcome-item" style="display: inline-block;">Don't think, just do it!</div>
+            <div class="welcome-item" style="display: inline-block;">Thanks to GitHub!</div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Home Page</a></li>
+                <li>
+                    <a href="../pages/python.html">Python▾</a>
+                    <ul>
+                        <li><a href="../pages/python-install.html">Python的安装</a></li>
+                        <li><a href="../pages/python-standard.html">Python的标准库</a></li>
+                        <li><a href="../pages/python-third.html">Python的第三方库</a></li>
+                    </ul>
+                </li>
+                <li><a href="../pages/latex.html">LaTeX</a></li>
+                <li><a href="../pages/economics.html">Economics</a></li>
+                <li><a href="../pages/aboutme.html">About me</a></li>
+            </ul>
+        </nav>
+        <div class="main-container">
+            <div class="left-container" id="current-contents">
+                由javascript.js插入各个章节的标题内容
+            </div>
+            <div class="middle-container">
+                <!-- 修改内容如下 --><h1 id="latex-简介与基础指南">LaTeX 简介与基础指南</h1>
+<h2 id="什么是-latex">1. 什么是 LaTeX？</h2>
+<p>LaTeX 是一种基于 TeX
+的排版系统，广泛用于生成高印刷质量的科技和数学类文档。与 Word
+等“所见即所得”（WYSIWYG）的文字处理软件不同，LaTeX
+采用“所见即所想”（WYSIWYM）的方式——用户通过纯文本加上标记命令来编写文档，由编译器最终生成排版精美的
+PDF 文件。</p>
+<h2 id="为什么选择-latex">2. 为什么选择 LaTeX？</h2>
+<ul>
+<li><strong>公式排版</strong>：拥有无与伦比的复杂数学公式排版能力。</li>
+<li><strong>自动化管理</strong>：自动生成和处理目录、交叉引用、脚注、参考文献、图表编号等。</li>
+<li><strong>样式统一</strong>：内容与样式分离，只需更改文档类即可改变全局样式，让你更专注于内容创作。</li>
+<li><strong>纯文本格式</strong>：文件极小，完美契合 Git
+等版本控制系统，且长文档编辑不易卡顿或崩溃。</li>
+</ul>
+<h2 id="基本文档结构">3. 基本文档结构</h2>
+<p>一个标准的 LaTeX
+文档通常包含<strong>导言区</strong>（Preamble）和<strong>正文区</strong>（Body）：</p>
+<pre class="latex"><code>\documentclass[12pt, a4paper]{article} % 导言区：定义文档类和全局设置
+
+\usepackage{amsmath} % 引入宏包，提供更多数学功能
+\usepackage{graphicx} % 提供插图功能
+\usepackage{ctex} % 支持中文排版
+
+\title{我的第一篇 LaTeX 文档}
+\author{作者姓名}
+\date{\today}
+
+\begin{document} % 正文区开始
+
+\maketitle % 生成标题信息
+
+\section{引言}
+这里是正文内容，Hello World! 欢迎来到 LaTeX 的世界。
+
+\end{document} % 正文区结束</code></pre>
+<h2 id="常用语法与命令">4. 常用语法与命令</h2>
+<h3 id="文本格式化">4.1 文本格式化</h3>
+<ul>
+<li><strong>加粗</strong>：<code>\textbf{加粗文本}</code></li>
+<li><em>斜体</em>：<code>\textit{斜体文本}</code></li>
+<li>强调文字：<code>\emph{强调文字}</code></li>
+<li>换行：连续两个回车（空一行）表示新起一段；<code>\\</code>
+表示强制换行但不换段落。</li>
+</ul>
+<h3 id="章节层级">4.2 章节层级</h3>
+<p>LaTeX 会自动为这些章节编号：</p>
+<pre class="latex"><code>\section{一级标题}
+\subsection{二级标题}
+\subsubsection{三级标题}</code></pre>
+<h3 id="列表环境">4.3 列表环境</h3>
+<p><strong>无序列表：</strong></p>
+<pre class="latex"><code>\begin{itemize}
+    \item 苹果
+    \item 香蕉
+\end{itemize}</code></pre>
+<p><strong>有序列表：</strong></p>
+<pre class="latex"><code>\begin{enumerate}
+    \item 第一步
+    \item 第二步
+\end{enumerate}</code></pre>
+<h3 id="数学公式">4.4 数学公式</h3>
+<p>LaTeX 最强大的功能是数学公式排版。 - <strong>行内公式</strong>：使用
+<code>$</code> 包裹，例如 <code>$E = mc^2$</code>，排版在文字中间。 -
+<strong>行间公式</strong>：单独占据一行，居中显示。使用
+<code>\[ ... \]</code>（无编号）或 <code>equation</code>
+环境（有编号）。</p>
+<pre class="latex"><code>\begin{equation}
+    f(x) = \int_{-\infty}^{\infty} \hat{f}(\xi)\,e^{2 \pi i \xi x} \,d\xi
+\end{equation}</code></pre>
+<p><em>常用数学符号：分数 <code>\frac{a}{b}</code>，上标
+<code>x^2</code>，下标 <code>a_1</code>，求和
+<code>\sum_{i=1}^{n}</code>。</em></p>
+<h3 id="插入图片">4.5 插入图片</h3>
+<p>需要引入 <code>graphicx</code> 宏包：</p>
+<pre class="latex"><code>\begin{figure}[htbp]
+    \centering % 图片居中
+    \includegraphics[width=0.8\textwidth]{image.png} % 插入图片并设置宽度
+    \caption{这是一张图片的标题} % 图片标题
+    \label{fig:my_image} % 标签，用于交叉引用：\ref{fig:my_image}
+\end{figure}</code></pre>
+<h2 id="常用编辑器与编译环境">5. 常用编辑器与编译环境</h2>
+<p>要使用 LaTeX，你需要一个<strong>编译器</strong>（将代码转为
+PDF）和一个<strong>编辑器</strong>（写代码的软件）：</p>
+<ul>
+<li><strong>在线平台</strong>：<a
+href="https://www.overleaf.com/">Overleaf</a>（极度推荐新手使用，免去本地环境配置的烦恼，开箱即用，支持多人协作）。</li>
+<li><strong>本地编译环境</strong>：TeX
+Live（跨平台，推荐完整安装）、MiKTeX（Windows）、MacTeX（macOS）。</li>
+<li><strong>本地编辑器</strong>：VS Code（配合 LaTeX Workshop
+插件使用体验极佳）、TeXStudio、TeXmaker 等。</li>
+</ul>
+                <!-- 修改内容如上 -->
+            </div>
+            <div class="right-container">
+                <img src="../assets/LW_BS_WithoutBoard.svg">
+                <p>Link Wilder</p>
+                <div class="personl-info">
+                    <div class="info-ico"><img src="../assets/GitHub_Lockup_Black.svg" width="80"></div>
+                    <div class="info-text"><a href="https://github.com/LinkWilder">LinkWilder</a></div>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <div class="footer-item">Thanks to</div>
+            <div class="footer-item">GitHub Pages</div>
+            <div class="footer-item">Prism</div>
+            <div class="footer-item">MathJax</div>
+        </footer>
+    </div>
+</body>
+</html>
