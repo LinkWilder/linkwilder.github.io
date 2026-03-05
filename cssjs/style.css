@@ -218,14 +218,24 @@ code:not(pre code) {
     border: 2px solid var(--main-color);
     background-color: color-mix(in srgb, var(--main-color), white 95%);
 }
+th {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    border-bottom: 3px solid black;;
+}
+td {
+    border: 1px solid black;;
+}
+td:first-child, th:first-child {
+    border-left: none;
+}
+td:last-child, th:last-child {
+    border-right: none;
+}
 table {
-border-collapse: collapse; 
-width: 100%;
-}
-table, th, td {
-border: 1px solid black;
-}
-th, td {
-padding: 8px;
-text-align: left;
+    border-top: 3px solid black; /* 表格外框 */
+    border-bottom: 3px solid black; /* 表格外框 */
+    border-collapse: collapse; /* 把单元格边框合并为单条线 */
 }
