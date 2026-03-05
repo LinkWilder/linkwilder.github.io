@@ -5,7 +5,7 @@
 % en = [None,NCM,NCMS,TGPX,TGTX,TGNCM,Source,Roboto,APC,ATC,ACC]
 % ma = [None,STIX,NCM,NCMS,TGP,TGT]
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{LinkWilder}[2026/02/28/16/15 v1.0]
+\ProvidesClass{LW}[2026/03/05 v1.0]
 % 文档类选项命令定义=============================================================
 \RequirePackage{kvoptions}
 \RequirePackage{etoolbox}
@@ -675,8 +675,14 @@
 \setbeamertemplate{title page}[default][colsep=-4bp,rounded=true,shadow=true]
 \setbeamertemplate{blocks}[rounded][shadow=true]
 % \useinnertheme{circles} work as follow:
-\setbeamertemplate{itemize item}{\raisebox{0.2ex}{\tikz{\filldraw (0,0.5) circle [radius=0.075]}}}
-\setbeamertemplate{enumerate item}{\raisebox{-0.5ex}{\tikz{\filldraw (0,0.0) circle [radius=0.15] node[white, font=\scriptsize] {\insertenumlabel}}}}
+\setbeamertemplate{itemize item}{\raisebox{0.15ex}{\tikz{\filldraw (0,0.5) circle [radius=0.075]}}}
+\setbeamertemplate{itemize subitem}{\raisebox{0.15ex}{\tikz{\draw[line width=1pt] (0,0.5) circle [radius=0.075];}}}
+\setbeamertemplate{itemize subsubitem}{\raisebox{0.215ex}{\tikz{\filldraw (0,0) rectangle (0.15,0.15)}}}
+
+\setbeamertemplate{enumerate item}{\raisebox{-0.5ex}{\tikz{\filldraw (0,0.0) circle [radius=0.15] node[white, font=\scriptsize] {\arabic{enumi}}}}}
+\setbeamertemplate{enumerate subitem}{\raisebox{-0.5ex}{\tikz{\filldraw (0,0.0) circle [radius=0.15] node[white, font=\scriptsize] {\alph{enumii}}}}}
+\setbeamertemplate{enumerate subsubitem}{\raisebox{-0.5ex}{\tikz{\filldraw (0,0.0) circle [radius=0.15] node[white, font=\scriptsize] {\roman{enumi}}}}}
+
 \setbeamertemplate{sections/subsections in toc}{\raisebox{-0.5ex}{\tikz{\filldraw (0,0) circle [radius=0.175] node[white, font=\footnotesize] {\inserttocsectionnumber}}} \inserttocsection\\}
 % font------------------------------------------------------------------------
 % \usefonttheme[stillsansseriflarge]{serif} work as follow:
@@ -684,6 +690,10 @@
 \def\mathfamilydefault{\rmdefault}
 \setbeamerfont{tiny structure}{family=\rmfamily}
 \setbeamerfont{structure}{family=\sffamily}
+
+\setbeamerfont{itemize/enumerate body}{}
+\setbeamerfont{itemize/enumerate subbody}{size=\normalsize}
+\setbeamerfont{itemize/enumerate subsubbody}{size=\normalsize}
 % color-----------------------------------------------------------------------
 \definecolor{link}{rgb}{0.1,0.2,0.2}
 \setbeamercolor{structure}{fg=link}
