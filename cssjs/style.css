@@ -192,22 +192,26 @@ footer {
     position: sticky;
     top: calc(100vh - 80px);
 }
+.middle-container h1 {
+    font-family: serif;
+    font-weight: bold;
+    font-size: 50px;
+}
 
 .middle-container a {
-    text-decoration-line: none;
     color: color-mix(in srgb, var(--main-color), black 40%);
 }
 .middle-container a:hover {
-    text-decoration: underline;
+    text-decoration-thickness: 3px;
 }
-code:not(pre code) {
+.middle-container code:not(pre code) {
     margin-inline: 3px;
     padding-inline: 3px;
     border-radius: 5px;
     border: 2px solid var(--main-color);
     background-color: color-mix(in srgb, var(--main-color), white 95%);
 }
-.hljs {
+.middle-container .hljs {
     display: block;
     overflow-x: auto;
     padding: 0.5em;
@@ -218,24 +222,29 @@ code:not(pre code) {
     border: 2px solid var(--main-color);
     background-color: color-mix(in srgb, var(--main-color), white 95%);
 }
-th {
+.middle-container th {
     padding-top: 10px;
     padding-bottom: 10px;
     border-left: 1px solid black;
     border-right: 1px solid black;
     border-bottom: 3px solid black;;
 }
-td {
+.middle-container td {
     border: 1px solid black;;
 }
-td:first-child, th:first-child {
+.middle-container td:first-child, th:first-child {
     border-left: none;
 }
-td:last-child, th:last-child {
+.middle-container td:last-child, th:last-child {
     border-right: none;
 }
-table {
+.middle-container table {
     border-top: 3px solid black; /* 表格外框 */
     border-bottom: 3px solid black; /* 表格外框 */
     border-collapse: collapse; /* 把单元格边框合并为单条线 */
+}
+.middle-container blockquote {
+    background-color: color-mix(in srgb, var(--main-color), white 90%);
+    border-left: 5px solid var(--main-color);
+    padding-left: 5px;
 }
