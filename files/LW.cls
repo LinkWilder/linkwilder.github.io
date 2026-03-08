@@ -675,7 +675,7 @@
 \def\familydefault{\rmdefault}
 \def\mathfamilydefault{\rmdefault}
 \setbeamerfont{tiny structure}{family=\rmfamily}
-\setbeamerfont{structure}{family=\sffamily}
+\setbeamerfont{structure}{family=\bfsf}
 
 \setbeamerfont{itemize/enumerate body}{}
 \setbeamerfont{itemize/enumerate subbody}{size=\normalsize}
