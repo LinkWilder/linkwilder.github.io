@@ -363,7 +363,7 @@
         UprightFont = *-Regular
     ]{TeXGyreTermesX}
 }{}
-% TeXGyreHeros & NewComputerModernSansBook & TeXGyreCursor--------------
+% TeXGyreHeros & NewComputerModernBook & TeXGyreCursor------------------
 \ifdefstring{\LW@en}{TGNCM}{
     \setmainfont[
         Extension = .otf,
@@ -390,6 +390,34 @@
         Extension = .otf,
         UprightFont = *-Book
     ]{NewCM10}
+}{}
+% TeXGyreHeros & NewComputerModernBook & TeXGyreCursor------------------
+\ifdefstring{\LW@en}{TGNCMS}{
+    \setmainfont[
+        Extension = .otf,
+        UprightFont = *-Book,
+        BoldFont = *-Bold,
+        ItalicFont = *-BookOblique,
+        BoldItalicFont = *-BoldOblique
+    ]{NewCMSans10}
+    \setsansfont[
+        Extension = .otf,
+        UprightFont = *-regular,
+        BoldFont = *-bold,
+        ItalicFont = *-italic,
+        BoldItalicFont = *-bolditalic
+    ]{texgyreheros}
+    \setmonofont[
+        Extension = .otf,
+        UprightFont = *-regular,
+        BoldFont = *-bold,
+        ItalicFont = *-italic,
+        BoldItalicFont = *-bolditalic
+    ]{texgyrecursor}
+    \newfontfamily\EngMain[
+        Extension = .otf,
+        UprightFont = *-Book
+    ]{NewCMSans10}
 }{}
 % SourceSansPro & SourceSerifPro & SourceCodePro------------------------
 \ifdefstring{\LW@en}{Source}{
