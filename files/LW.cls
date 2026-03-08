@@ -35,7 +35,7 @@
 % beamer----------------------------------------------------------------
 \ifdefstring{\LW@cls}{beamer}{%
     \ifdefstring{\LW@sc}{None}
-    {\LoadClass{beamer}}{\LoadClass[fontset=none]{ctexbeamer}}
+    {\LoadClass[\LW@other]{beamer}}{\LoadClass[fontset=none,\LW@other]{ctexbeamer}}
 }{}
 % 2.根据选项设置对应字体====================================================================
 \RequirePackage{fontspec}
