@@ -1,12 +1,12 @@
 % Required Engine: XeLaTeX, Option:
 % cls = [article,report,beamer]
 % bfsf = [bf,sf,bfsf]
-% sc = [None,Adobe,Fandol,Founder,ZhongYi] `None` wihtout CTEX
-% en = [None,NCM,NCMS,TGPX,TGTX,TGNCM,Source,Roboto,APC,ATC,ACC]
+% sc = [None,Fandol,Founder,ZhongYi] `None` wihtout CTEX
+% en = [None,NCM,TGPX,TGTX,TGNCM,TGNCMS,APC,ATC,ACC]
 % ma = [None,STIX,NCM,NCMS,TGP,TGT]
 % other = [] for other options
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{LW}[2026/03/07 v1.0]
+\ProvidesClass{LW}[2026/03/09 v1.0]
 % 文档类选项命令定义========================================================================
 \RequirePackage{kvoptions}
 \RequirePackage{etoolbox}
@@ -15,8 +15,8 @@
 
 \DeclareStringOption[article]{cls}
 \DeclareStringOption[sf]{bfsf}
-\DeclareStringOption[Founder]{sc}
-\DeclareStringOption[ATC]{en}
+\DeclareStringOption[Fandol]{sc}
+\DeclareStringOption[TGNCM]{en}
 \DeclareStringOption[NCM]{ma}
 \DeclareStringOption{other}
 % 处理选项================================================================================
@@ -35,63 +35,13 @@
 % beamer----------------------------------------------------------------
 \ifdefstring{\LW@cls}{beamer}{%
     \ifdefstring{\LW@sc}{None}
-    {\LoadClass[\LW@other]{beamer}}{\LoadClass[fontset=none,\LW@other]{ctexbeamer}}
+    {\LoadClass[aspectratio=1610,t,\LW@other]{beamer}}{\LoadClass[fontset=none,aspectratio=1610,t,\LW@other]{ctexbeamer}}
 }{}
 % 2.根据选项设置对应字体====================================================================
 \RequirePackage{fontspec}
 % 2.1中文字体命令定义======================================================================
 % None------------------------------------------------------------------
 \ifdefstring{\LW@sc}{None}{}{}
-% Adobe-----------------------------------------------------------------
-\ifdefstring{\LW@sc}{Adobe}{
-\ifdefstring{\LW@cls}{beamer}{% Adobebeamer-----------------------------
-    \setCJKmainfont[
-        Extension = .otf,
-        UprightFont = *,
-        BoldFont = AdobeHeitiStd-Regular,
-        ItalicFont = AdobeFangsongStd-Regular
-    ]{AdobeKaitiStd-Regular}
-    \setCJKsansfont[
-        Extension = .otf,
-        UprightFont = *,
-        BoldFont = *,
-        ItalicFont = *
-    ]{AdobeHeitiStd-Regular}
-    \setCJKmonofont[
-        Extension = .otf,
-        UprightFont = *,
-        BoldFont = *,
-        ItalicFont = *
-    ]{AdobeFangsongStd-Regular}
-}{% Adobe---------------------------------------------------------------
-    \setCJKmainfont[
-        Extension = .otf,
-        UprightFont = *,
-        UprightFeatures = {FakeBold = 1.0},
-        BoldFont = AdobeHeitiStd-Regular,
-        ItalicFont = AdobeKaitiStd-Regular
-    ]{AdobeSongStd-Light}
-    \setCJKsansfont[
-        Extension = .otf,
-        UprightFont = *,
-        BoldFont = *,
-        ItalicFont = *
-    ]{AdobeHeitiStd-Regular}
-    \setCJKmonofont[
-        Extension = .otf,
-        UprightFont = *,
-        BoldFont = *,
-        ItalicFont = *
-    ]{AdobeFangsongStd-Regular}
-    \newCJKfontfamily\Kai[
-        Extension = .otf,
-        UprightFont = *
-    ]{AdobeKaitiStd-Regular}
-    \newCJKfontfamily\Fang[
-        Extension = .otf,
-        UprightFont = *
-    ]{AdobeKaitiStd-Regular}
-}}{}
 % Fandol----------------------------------------------------------------
 \ifdefstring{\LW@sc}{Fandol}{
 \ifdefstring{\LW@cls}{beamer}{% Fandolbeamer----------------------------
@@ -275,34 +225,6 @@
         UprightFont = *-Book
     ]{NewCM10}
 }{}
-% NewComputerModernSansBook---------------------------------------------
-\ifdefstring{\LW@en}{NCMS}{
-    \setmainfont[
-        Extension = .otf,
-        UprightFont = *-Book,
-        BoldFont = *-Bold,
-        ItalicFont = *-BookOblique,
-        BoldItalicFont = *-BoldOblique
-    ]{NewCMSans10}
-    \setsansfont[
-        Extension = .otf,
-        UprightFont = *-Book,
-        BoldFont = *-Bold,
-        ItalicFont = *-BookOblique,
-        BoldItalicFont = *-BoldOblique
-    ]{NewCMSans10}
-    \setmonofont[
-        Extension = .otf,
-        UprightFont = *-Book,
-        BoldFont = *-Bold,
-        ItalicFont = *-BookItalic,
-        BoldItalicFont = *-BoldOblique
-    ]{NewCMMono10}
-    \newfontfamily\EngMain[
-        Extension = .otf,
-        UprightFont = *-Book
-    ]{NewCMSans10}
-}{}
 % TeXGyreHeros & TeXGyrePagellaX & TeXGyreCursor------------------------
 \ifdefstring{\LW@en}{TGPX}{
     \setmainfont[
@@ -391,13 +313,13 @@
         UprightFont = *-Book
     ]{NewCM10}
 }{}
-% TeXGyreHeros & NewComputerModernBook & TeXGyreCursor------------------
+% TeXGyreHeros & NewComputerModernSans & TeXGyreCursor------------------
 \ifdefstring{\LW@en}{TGNCMS}{
     \setmainfont[
         Extension = .otf,
-        UprightFont = *-Book,
+        UprightFont = *-Regular,
         BoldFont = *-Bold,
-        ItalicFont = *-BookOblique,
+        ItalicFont = *-Oblique,
         BoldItalicFont = *-BoldOblique
     ]{NewCMSans10}
     \setsansfont[
@@ -416,64 +338,8 @@
     ]{texgyrecursor}
     \newfontfamily\EngMain[
         Extension = .otf,
-        UprightFont = *-Book
+        UprightFont = *-Regular
     ]{NewCMSans10}
-}{}
-% SourceSansPro & SourceSerifPro & SourceCodePro------------------------
-\ifdefstring{\LW@en}{Source}{
-    \setmainfont[
-        Extension = .otf,
-        UprightFont = *-Regular,
-        BoldFont = *-Bold,
-        ItalicFont = *-RegularIt,
-        BoldItalicFont = *-BoldIt
-    ]{SourceSerifPro}
-    \setsansfont[
-        Extension = .otf,
-        UprightFont = *-Regular,
-        BoldFont = *-Bold,
-        ItalicFont = *-RegularIt,
-        BoldItalicFont = *-BoldIt
-    ]{SourceSansPro}
-    \setmonofont[
-        Extension = .otf,
-        UprightFont = *-Regular,
-        BoldFont = *-Bold,
-        ItalicFont = *-RegularIt,
-        BoldItalicFont = *-BoldIt
-    ]{SourceCodePro}
-    \newfontfamily\EngMain[
-        Extension = .otf,
-        UprightFont = *-Regular
-    ]{SourceSerifPro}
-}{}
-% Roboto & RobotoSerif & RobotoMono-------------------------------------
-\ifdefstring{\LW@en}{Roboto}{
-    \setmainfont[
-        Extension = .otf,
-        UprightFont = *-Regular,
-        BoldFont = *-Bold,
-        ItalicFont = *-Italic,
-        BoldItalicFont = *-BoldItalic
-    ]{RobotoSerif}
-    \setsansfont[
-        Extension = .otf,
-        UprightFont = *-Regular,
-        BoldFont = *-Bold,
-        ItalicFont = *-Italic,
-        BoldItalicFont = *-BoldItalic
-    ]{Roboto}
-    \setmonofont[
-        Extension = .otf,
-        UprightFont = *-Regular,
-        BoldFont = *-Bold,
-        ItalicFont = *-Italic,
-        BoldItalicFont = *-BoldItalic
-    ]{RobotoMono}
-    \newfontfamily\EngMain[
-        Extension = .otf,
-        UprightFont = *-Regular
-    ]{RobotoSerif}
 }{}
 % Arial & Palatino Linotype & Courier New-------------------------------
 \ifdefstring{\LW@en}{APC}{
@@ -641,65 +507,90 @@
 \ifdefstring{\LW@bfsf}{bfsf}{\bfseries\sffamily}{}
 }
 % 3.文档类样式设置=========================================================================
+\RequirePackage{tikz}
 \RequirePackage{geometry}
 % 3.1beamer==============================================================================
 \ifdefstring{\LW@cls}{beamer}{%
-\RequirePackage{tikz}
-\geometry{paperwidth=160mm, paperheight=100mm}
+\setbeamersize{text margin left=1em,text margin right=1em}
 % 文字两端对齐而非左对齐
 \renewcommand{\raggedright}{\leftskip=0pt \rightskip=0pt plus 0cm}
 % outer-----------------------------------------------------------------
-% \useoutertheme{infolines} work as follow:
+\defbeamertemplate*{headline}{miniframes theme}{%
+    \begin{beamercolorbox}[colsep=1.5pt]{upper separation line head}\end{beamercolorbox}
+    \begin{beamercolorbox}{section in head/foot}
+        \vskip2.5ex
+        \vskip-\baselineskip
+        \insertnavigation{\paperwidth}%
+        \vskip1.125ex
+    \end{beamercolorbox}%
+}
 \setbeamertemplate{page number in head/foot}[totalframenumber]
 \defbeamertemplate*{footline}{infolines theme}{%
-\leavevmode%
-\hbox{%
-\begin{beamercolorbox}[wd=.25\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
-    \usebeamerfont{author in head/foot}\insertshortauthor\expandafter\ifblank\expandafter
-    {\beamer@shortinstitute}{}{~~(\insertshortinstitute)}
-\end{beamercolorbox}%
-\begin{beamercolorbox}[wd=.5\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
-    \usebeamerfont{title in head/foot}\insertshorttitle
-\end{beamercolorbox}%
-\begin{beamercolorbox}[wd=.25\paperwidth,ht=2.25ex,dp=1ex,leftskip=2ex,rightskip=2ex,sep=0pt]{date in head/foot}%
-    \hfill%
-    \usebeamerfont{date in head/foot}%
-    \insertshortdate{}%
-    \hfill%
-    \usebeamercolor[fg]{page number in head/foot}%
-    \usebeamerfont{page number in head/foot}%
-    \usebeamertemplate{page number in head/foot}%
-\end{beamercolorbox}}%
-\vskip0pt%
+    \leavevmode%
+    \hbox{%
+    \begin{beamercolorbox}[wd=.25\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+        \usebeamerfont{author in head/foot}\insertshortauthor\expandafter\ifblank\expandafter{\beamer@shortinstitute}{}{~~(\insertshortinstitute)}
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+        \usebeamerfont{title in head/foot}\insertshorttitle
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=.25\paperwidth,ht=2.25ex,dp=1ex,leftskip=2ex,rightskip=2ex,sep=0pt]{date in head/foot}%
+        \hfill%
+        \usebeamerfont{date in head/foot}%
+        \insertshortdate{}%
+        \hfill%
+        \usebeamercolor[fg]{page number in head/foot}%
+        \usebeamerfont{page number in head/foot}%
+        \usebeamertemplate{page number in head/foot}%
+    \end{beamercolorbox}}%
+    \vskip0pt%
 }
-\setbeamersize{text margin left=1em,text margin right=1em}
-% \useoutertheme[subsection=false]{miniframes} work as follow:
-\defbeamertemplate*{headline}{miniframes theme}{%
-\begin{beamercolorbox}{section in head/foot}
-    \vskip2.5ex
-    \vskip-\baselineskip
-    \insertnavigation{\paperwidth}%
-    \vskip1.125ex
-\end{beamercolorbox}%
+\defbeamertemplate*{frametitle}{LW}[1][left]{%
+    \ifbeamercolorempty[bg]{frametitle}{}{\nointerlineskip}%
+    \@tempdima=\textwidth%
+    \advance\@tempdima by\beamer@leftmargin%
+    \advance\@tempdima by\beamer@rightmargin%
+    \begin{beamercolorbox}[sep=0.3cm,#1,wd=\the\@tempdima]{frametitle}
+        \usebeamerfont{frametitle}%
+        \vbox{}\vskip-1ex%
+        \if@tempswa\else\csname beamer@fte#1\endcsname\fi%
+        \strut\insertframetitle\strut\par%
+        {%
+          \ifx\insertframesubtitle\@empty%
+          \else%
+          {\usebeamerfont{framesubtitle}\usebeamercolor[fg]{framesubtitle}\strut\insertframesubtitle\strut\par}%
+          \fi
+        }%
+        \vskip-1ex%
+        \if@tempswa\else\vskip-.3cm\fi% set inside beamercolorbox... evil here...
+    \end{beamercolorbox}\vskip-1ex%
 }
 % innner----------------------------------------------------------------
 \setbeamertemplate{navigation symbols}{}
 \setbeamertemplate{caption}[numbered]
-% \useinnertheme[shadow=true]{rounded} work as follow:
-\setbeamertemplate{title page}[default][colsep=-4bp,rounded=true,shadow=true]
 \setbeamertemplate{blocks}[rounded][shadow=true]
-% \useinnertheme{circles} work as follow:
-\setbeamertemplate{itemize item}{\raisebox{0.15ex}{\tikz{\filldraw (0,0.5) circle [radius=0.075]}}}
-\setbeamertemplate{itemize subitem}{\raisebox{0.15ex}{\tikz{\draw[line width=1pt] (0,0.5) circle [radius=0.075];}}}
-\setbeamertemplate{itemize subsubitem}{\raisebox{0.215ex}{\tikz{\filldraw (0,0) rectangle (0.15,0.15)}}}
+\setbeamertemplate{title page}[default][colsep=-4bp,rounded=true,shadow=true]
 
-\setbeamertemplate{enumerate item}{\raisebox{-0.5ex}{\tikz{\filldraw (0,0.0) circle [radius=0.15] node[white, font=\scriptsize] {\arabic{enumi}}}}}
-\setbeamertemplate{enumerate subitem}{\raisebox{-0.5ex}{\tikz{\filldraw (0,0.0) circle [radius=0.15] node[white, font=\scriptsize] {\alph{enumii}}}}}
-\setbeamertemplate{enumerate subsubitem}{\raisebox{-0.5ex}{\tikz{\filldraw (0,0.0) circle [radius=0.15] node[white, font=\scriptsize] {\roman{enumi}}}}}
+\newcommand{\LWcircle}{\raisebox{0.2ex}{\tikz{\filldraw (0,0.5) circle [radius=0.075]}}}
+\newcommand{\LWsquare}{\raisebox{0.0ex}{\tikz{\filldraw (0,0) rectangle (0.2,0.2)}}}
+\newcommand{\LWsquarenum}[1]{\raisebox{-0.1ex}{\tikz{\node[rectangle,rounded corners=3pt,fill=link,text=white,inner sep=2pt,font=\scriptsize] at (0,0) {#1}}}}
 
-\setbeamertemplate{sections/subsections in toc}{\raisebox{-0.5ex}{\tikz{\filldraw (0,0) circle [radius=0.175] node[white, font=\footnotesize] {\inserttocsectionnumber}}} \inserttocsection\\}
+\defbeamertemplate*{section in toc}{LW}{\leavevmode\LWsquarenum{\inserttocsectionnumber} \inserttocsection\par}
+
+\defbeamertemplate*{subsection in toc}{LW}{\leavevmode\leftskip=1.5em
+\LWsquarenum{\inserttocsectionnumber.\inserttocsubsectionnumber} \inserttocsubsection\par}
+
+\defbeamertemplate*{subsubsection in toc}{LW}{\leavevmode\normalsize\leftskip=3em
+\LWsquarenum{\inserttocsectionnumber.\inserttocsubsectionnumber.\inserttocsubsubsectionnumber} \inserttocsubsubsection\par}
+
+\defbeamertemplate*{itemize item}{LW}{\LWcircle}
+\defbeamertemplate*{itemize subitem}{LW}{\LWcircle}
+\defbeamertemplate*{itemize subsubitem}{LW}{\LWcircle}
+
+\defbeamertemplate*{enumerate item}{LW}{\LWsquarenum{\insertenumlabel}}
+\defbeamertemplate*{enumerate subitem}{LW}{\LWsquarenum{\insertenumlabel.\insertsubenumlabel}}
+\defbeamertemplate*{enumerate subsubitem}{LW}{\LWsquarenum{\insertenumlabel.\insertsubenumlabel.\insertsubsubenumlabel}}
 % font------------------------------------------------------------------
-% \usefonttheme[stillsansseriflarge]{serif} work as follow:
 \def\familydefault{\rmdefault}
 \def\mathfamilydefault{\rmdefault}
 \setbeamerfont{tiny structure}{family=\rmfamily}
@@ -725,6 +616,8 @@
 
 \setbeamercolor{block title}{use=titlelike,fg=white,bg=titlelike.bg}
 \setbeamercolor{block body}{parent=normal text,use=block title,bg=block title.bg!10!bg}
+
+\setbeamercolor{subsection in toc}{parent=structure}
 }{ % 3.2Notbeamer==============================================================
 % 页边距设置-------------------------------------------------------------
 \geometry{margin=3cm,headheight=1cm,headsep=0.5cm,footskip=1.5cm}
@@ -769,7 +662,7 @@
 \newcommand*{\MyTitle}{}
 \fancypagestyle{plain}{
     \fancyhf{}
-    \fancyfoot[C]{—\ \thepage\ —}
+    \fancyfoot[C]{---\ \thepage\ ---}
     \renewcommand{\headrulewidth}{0pt}
 }
 \fancypagestyle{headfoot}{
@@ -779,7 +672,7 @@
             \ifdefstring{\LW@sc}{None}{\markboth{\thechapter##1}{}}
             {\markboth{\CTEXthechapter##1}{}}}
         \fancyhead[C]{\leftmark}}
-    \fancyfoot[C]{—\ \thepage\ —}
+    \fancyfoot[C]{---\ \thepage\ ---}
     \renewcommand{\headrulewidth}{1pt}
 }
 \pagestyle{headfoot}
@@ -787,7 +680,6 @@
 % 原代码见CTAN/macros/latex/base/classes.pdf中7.1 The title部分，修改部分均已注释
 \newcommand{\subtitle}[1]{\gdef\@subtitle{#1}} % LW：定义\subtitle命令
 \def\@subtitle{} % LW：定义\subtitle命令
-
 \if@titlepage
 \renewcommand\maketitle{ % LW：\newcommand修改为\renewcommand
 \begin{titlepage}%
