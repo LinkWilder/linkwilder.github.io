@@ -1,12 +1,12 @@
+% From `www.linkwilder.github.io`. Base on TeXPage website.
 % Required Engine: XeLaTeX, Option:
 % cls = [article,report,beamer]
 % bfsf = [bf,sf,bfsf]
 % sc = [None,Fandol,Founder,ZhongYi] `None` wihtout CTEX
 % en = [None,NCM,TGPX,TGTX,TGNCM,TGNCMS,APC,ATC,ACC]
-% ma = [None,STIX,NCM,NCMS,TGP,TGT]
-% other = [] for other options
+% ma = [None,STIX,NCM,NCMS,XITS,TGP,TGT]
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{LW}[2026/03/09 v1.0]
+\ProvidesClass{LW}[2026/03/12/13/05]
 % 文档类选项命令定义========================================================================
 \RequirePackage{kvoptions}
 \RequirePackage{etoolbox}
@@ -18,25 +18,17 @@
 \DeclareStringOption[Fandol]{sc}
 \DeclareStringOption[TGNCM]{en}
 \DeclareStringOption[NCM]{ma}
-\DeclareStringOption{other}
 % 处理选项================================================================================
 \ProcessKeyvalOptions*
 % 1.根据选项设置文档类======================================================================
 % article---------------------------------------------------------------
-\ifdefstring{\LW@cls}{article}{%
-    \ifdefstring{\LW@sc}{None}
-    {\LoadClass[\LW@other]{article}}{\LoadClass[fontset=none,\LW@other]{ctexart}}
-}{}
+\ifdefstring{\LW@cls}{article}{\LoadClass[10pt,a4paper]{article}}{}
 % report----------------------------------------------------------------
-\ifdefstring{\LW@cls}{report}{%
-    \ifdefstring{\LW@sc}{None}
-    {\LoadClass[\LW@other]{report}}{\LoadClass[fontset=none,\LW@other]{ctexrep}}
-}{}
+\ifdefstring{\LW@cls}{report}{\LoadClass[10pt,a4paper]{report}}{}
 % beamer----------------------------------------------------------------
-\ifdefstring{\LW@cls}{beamer}{%
-    \ifdefstring{\LW@sc}{None}
-    {\LoadClass[aspectratio=1610,t,\LW@other]{beamer}}{\LoadClass[fontset=none,aspectratio=1610,t,\LW@other]{ctexbeamer}}
-}{}
+\ifdefstring{\LW@cls}{beamer}{\LoadClass[aspectratio=1610,t]{beamer}}{}
+% ctex------------------------------------------------------------------
+\ifdefstring{\LW@sc}{None}{}{\RequirePackage[fontset=none]{ctex}}
 % 2.根据选项设置对应字体====================================================================
 \RequirePackage{fontspec}
 % 2.1中文字体命令定义======================================================================
@@ -441,9 +433,9 @@
 \ifdefstring{\LW@ma}{NCMS}{
     \setmathfont[Extension = .otf]{NewCMSansMath-Regular}
 }{}
-% LibertinusMath--------------------------------------------------------
+% XITSMath--------------------------------------------------------------
 \ifdefstring{\LW@ma}{LT}{
-    \setmathfont[Extension = .otf]{LibertinusMath-Regular}
+    \setmathfont[Extension = .otf]{XITSMath-Regular}
 }{}
 % TeXGyrePagella--------------------------------------------------------
 \ifdefstring{\LW@ma}{TGP}{
@@ -453,59 +445,6 @@
 \ifdefstring{\LW@ma}{TGT}{
     \setmathfont[Extension = .otf]{texgyretermes-math}
 }{}
-% Test------------------------------------------------------------------
-\ifdefstring{\LW@ma}{T}{
-    % \setmathfont[Extension = .otf]{IBMPlexMath-Regular}
-    % \setmathfont[Extension = .otf]{Asana-Math}
-    \setmathfont[Extension = .otf]{Concrete-Math}
-    % \setmathfont[Extension = .otf]{Erewhon-Math}
-    % \setmathfont[Extension = .otf]{Euler-Math}
-    % \setmathfont[Extension = .otf]{FiraMath-Regular}
-    % \setmathfont[Extension = .otf]{Garamond-Math}
-    % \setmathfont[Extension = .otf]{GFSNeohellenicMath}
-    % \setmathfont[Extension = .otf]{KpMath-Regular}
-    % \setmathfont[Extension = .otf]{LeteSansMath}
-    % \setmathfont[Extension = .otf]{LibertinusMath-Regular}
-    % \setmathfont[Extension = .otf]{latinmodern-math}
-    % \setmathfont[Extension = .otf]{Luciole-Math}
-    % \setmathfont[Extension = .otf]{OldStandard-Math}
-    % \setmathfont[Extension = .otf]{STIXMath-Regular}
-    % \setmathfont[Extension = .otf]{XCharter-Math}
-    % \setmathfont[Extension = .otf]{XITSMath-Regular}
-    % \setmathfont[Extension = .otf]{STIXTwoMath-Regular}
-    % \setmathfont[Extension = .otf]{NewCMMath-Regular}
-    % \setmathfont[Extension = .otf]{NewCMSansMath-Regular}
-}{}
-% 字号命令设置------------------------------------------------------------
-\ifdefstring{\LW@sc}{None}{
-    \renewcommand{\tiny}{\@setfontsize\tiny{6pt}{7.2pt}}
-    \renewcommand{\scriptsize}{\@setfontsize\scriptsize{7pt}{8.4pt}}
-    \renewcommand{\footnotesize}{\@setfontsize\footnotesize{8pt}{9.6pt}}
-    \renewcommand{\small}{\@setfontsize\small{9pt}{10.8pt}}
-    \renewcommand{\normalsize}{\@setfontsize\normalsize{10pt}{12pt}}
-    \renewcommand{\large}{\@setfontsize\large{12pt}{14.4pt}}
-    \renewcommand{\Large}{\@setfontsize\Large{14pt}{16.8pt}}
-    \renewcommand{\LARGE}{\@setfontsize\LARGE{16pt}{19.2pt}}
-    \renewcommand{\huge}{\@setfontsize\huge{18pt}{21.6pt}}
-    \renewcommand{\Huge}{\@setfontsize\Huge{22pt}{26.4pt}}
-}{% \@setfontsize{命令}{字体大小}{行间距}
-    \renewcommand{\tiny}{\@setfontsize\tiny{5.5bp}{6.05bp}}% 七号 (5.5*1.1=6.05)
-    \renewcommand{\scriptsize}{\@setfontsize\scriptsize{6.5bp}{7.15bp}}% 小六 (6.5*1.1=7.15)
-    \renewcommand{\footnotesize}{\@setfontsize\footnotesize{7.5bp}{8.25bp}}% 六号 (7.5*1.1=8.25)
-    \renewcommand{\small}{\@setfontsize\small{9bp}{9.9bp}}% 小五 (9*1.1=9.9)
-    \renewcommand{\normalsize}{\@setfontsize\normalsize{10.5bp}{11.55bp}}% 五号 (10.5*1.1=11.55)
-    \renewcommand{\large}{\@setfontsize\large{12bp}{13.2bp}}% 小四 (12*1.1=13.2)
-    \renewcommand{\Large}{\@setfontsize\Large{14bp}{15.4bp}}% 四号 (14*1.1=15.4)
-    \renewcommand{\LARGE}{\@setfontsize\LARGE{16bp}{17.6bp}}% 三号 (16*1.1=17.6)
-    \renewcommand{\huge}{\@setfontsize\huge{18bp}{19.8bp}}% 小二 (18*1.1=19.8)
-    \renewcommand{\Huge}{\@setfontsize\Huge{22bp}{24.2bp}}% 二号 (22*1.1=24.2)
-}
-% 标题字体定义------------------------------------------------------------
-\newcommand{\bfsf}{
-\ifdefstring{\LW@bfsf}{bf}{\bfseries}{}
-\ifdefstring{\LW@bfsf}{sf}{\sffamily}{}
-\ifdefstring{\LW@bfsf}{bfsf}{\bfseries\sffamily}{}
-}
 % 3.文档类样式设置=========================================================================
 \RequirePackage{tikz}
 \RequirePackage{geometry}
@@ -562,7 +501,7 @@
           \fi
         }%
         \vskip-1ex%
-        \if@tempswa\else\vskip-.3cm\fi% set inside beamercolorbox... evil here...
+        \if@tempswa\else\vskip-.3cm\fi%
     \end{beamercolorbox}\vskip-1ex%
 }
 % innner----------------------------------------------------------------
@@ -619,6 +558,33 @@
 
 \setbeamercolor{subsection in toc}{parent=structure}
 }{ % 3.2Notbeamer==============================================================
+% 字号设置------------------------------------------------------------------
+\DeclareRobustCommand\normalsize{%
+   \@setfontsize\normalsize\@xpt\@xiipt
+   \abovedisplayskip 5\p@ \@plus2\p@ \@minus2\p@
+   \abovedisplayshortskip \z@ \@plus3\p@
+   \belowdisplayshortskip 6\p@ \@plus3\p@ \@minus3\p@
+   \belowdisplayskip \abovedisplayskip
+   \let\@listi\@listI}
+\DeclareRobustCommand\small{\@setfontsize\small\@ixpt{11}}
+\DeclareRobustCommand\footnotesize{\@setfontsize\footnotesize\@viiipt{9.5}}
+\DeclareRobustCommand\scriptsize{\@setfontsize\scriptsize\@viipt\@viiipt}
+\DeclareRobustCommand\tiny{\@setfontsize\tiny\@vpt\@vipt}
+\DeclareRobustCommand\large{\@setfontsize\large\@xiipt{14}}
+\DeclareRobustCommand\Large{\@setfontsize\Large\@xivpt{18}}
+\DeclareRobustCommand\LARGE{\@setfontsize\LARGE\@xviipt{22}}
+\DeclareRobustCommand\huge{\@setfontsize\huge\@xxpt{25}}
+\DeclareRobustCommand\Huge{\@setfontsize\Huge\@xxvpt{30}}
+% 浮动体设置-------------------------------------------------------------
+\setlength\floatsep    {5\p@ \@plus 2\p@ \@minus 2\p@}
+\setlength\textfloatsep{5\p@ \@plus 2\p@ \@minus 2\p@}
+\setlength\intextsep   {5\p@ \@plus 2\p@ \@minus 2\p@}
+% 标题字体定义------------------------------------------------------------
+\newcommand{\bfsf}{
+\ifdefstring{\LW@bfsf}{bf}{\bfseries}{}
+\ifdefstring{\LW@bfsf}{sf}{\sffamily}{}
+\ifdefstring{\LW@bfsf}{bfsf}{\bfseries\sffamily}{}
+}
 % 页边距设置-------------------------------------------------------------
 \geometry{margin=3cm,headheight=1cm,headsep=0.5cm,footskip=1.5cm}
 % 字体族命令定义----------------------------------------------------------
@@ -645,12 +611,7 @@
 \ifdefstring{\LW@bfsf}{bf}{\captionsetup{font={bf}}}{}
 \ifdefstring{\LW@bfsf}{sf}{\captionsetup{font={sf}}}{}
 \ifdefstring{\LW@bfsf}{bfsf}{\captionsetup{font={bf,sf}}}{}
-\captionsetup{
-    % labelfont={sf,bf},
-    % textfont={sf,bf},
-    aboveskip=0pt,
-    belowskip=0pt
-}
+\captionsetup{skip=5pt,labelsep=quad}
 % 页眉页脚设置------------------------------------------------------------
 \RequirePackage{fancyhdr}
 \newcommand\Originaltitle{}
@@ -670,165 +631,49 @@
     \ifdefstring{\LW@cls}{article}{\fancyhead[C]{\MyTitle}}{
         \renewcommand{\chaptermark}[1]{
             \ifdefstring{\LW@sc}{None}{\markboth{\thechapter##1}{}}
-            {\markboth{\CTEXthechapter##1}{}}}
+            {\markboth{\thechapter##1}{}}}
         \fancyhead[C]{\leftmark}}
     \fancyfoot[C]{---\ \thepage\ ---}
     \renewcommand{\headrulewidth}{1pt}
 }
 \pagestyle{headfoot}
 % maketitle命令设置------------------------------------------------------
-% 原代码见CTAN/macros/latex/base/classes.pdf中7.1 The title部分，修改部分均已注释
-\newcommand{\subtitle}[1]{\gdef\@subtitle{#1}} % LW：定义\subtitle命令
-\def\@subtitle{} % LW：定义\subtitle命令
-\if@titlepage
-\renewcommand\maketitle{ % LW：\newcommand修改为\renewcommand
-\begin{titlepage}%
-    \let\footnotesize\small
-    \let\footnoterule\relax
-    \let \footnote \thanks
-    \null\vfil
-    \vskip 60\p@
-    \begin{center}%
-        {\LARGE\bfsf \@title \par} % LW：增加\bsfs命令
-        \vskip 3em%
-        % LW：插入\subtitle命令如下
-        \ifx\@subtitle\@empty
-        \else
-            \ifdefstring{\LW@sc}{None}
-            {{\Large\itshape \@subtitle \par}}
-            {{\Large\textkai \@subtitle \par}}
-            \vskip 2em
-        \fi
-        % LW：插入\subtitle命令如上
-        {\large
-        \lineskip .75em%
-        \begin{tabular}[t]{c}%
-            \@author
-        \end{tabular}\par}%
-        \vskip 1.5em%
-        {\large \@date \par}%
-    \end{center}\par
-    \@thanks
-    \vfil\null
-\end{titlepage}%
-\thispagestyle{plain}  % LW：指定封面后的一页样式
-\setcounter{footnote}{0}%
-\global\let\thanks\relax
-\global\let\maketitle\relax
-\global\let\@thanks\@empty
-\global\let\@author\@empty
-\global\let\@date\@empty
-\global\let\@title\@empty
-\global\let\@subtitle\@empty % LW：适配\subtitle命令
-\global\let\subtitle\relax % LW：适配\subtitle命令
-\global\let\title\relax
-\global\let\author\relax
-\global\let\date\relax
-\global\let\and\relax
+\RequirePackage{titling}
+\pretitle{\begin{center}\bfsf\LARGE}
+\newcommand{\subtitle}[1]{%
+  \posttitle{%
+    \par\end{center}
+    \begin{center}\Large\textkai{#1}\end{center}}%
 }
-\else
-\renewcommand\maketitle{ % LW：\newcommand修改为\renewcommand
-\par
-\begingroup
-    \renewcommand\thefootnote{\@fnsymbol\c@footnote}%
-    \def\@makefnmark{\rlap{\@textsuperscript{\normalfont\@thefnmark}}}%
-    \long\def\@makefntext##1{\parindent 1em\noindent
-        \hb@xt@1.8em{%
-    \hss\@textsuperscript{\normalfont\@thefnmark}}##1}
-    % LW：删去了\if@twocolumn的设置,只保留了\else,见下
-    \newpage
-    \global\@topnum\z@   % Prevents figures from going at top of page.
-    \@maketitle
-    % LW：删去了\if@twocolumn的设置,只保留了\else,见上
-    \thispagestyle{plain}\@thanks
-\endgroup
-\setcounter{footnote}{0}%
-\global\let\thanks\relax
-\global\let\maketitle\relax
-\global\let\@maketitle\relax
-\global\let\@thanks\@empty
-\global\let\@author\@empty
-\global\let\@date\@empty
-\global\let\@title\@empty
-\global\let\@subtitle\@empty % LW：适配\subtitle命令
-\global\let\subtitle\relax % LW：适配\subtitle命令
-\global\let\title\relax
-\global\let\author\relax
-\global\let\date\relax
-\global\let\and\relax
+\preauthor{
+    \begin{center}
+    \large \lineskip 0.5em%
+    \begin{tabular}[t]{c}
 }
-\def\@maketitle{%
-\newpage
-\null
-\vskip 1em % LW：从2em修改为1em
-\begin{center}%
-    \let \footnote \thanks
-    {\LARGE\bfsf \@title \par} % LW：增加\bsfs命令
-    \vskip 1em % LW：从1.5em修改为1em
-    % LW：插入\subtitle命令如下
-    \ifx\@subtitle\@empty
-    \else
-        \ifdefstring{\LW@sc}{None}
-        {{\Large\itshape \@subtitle \par}}
-        {{\Large\textkai \@subtitle \par}}
-        \vskip 1em
-    \fi
-    % LW：插入\subtitle命令如上
-    {\large
-        \lineskip .5em%
-        \begin{tabular}[t]{c}%
-            \@author
-        \end{tabular}\par}%
-    \vskip 1em%
-    {\large \@date}%
-\end{center}%
-\par
-\vskip 1.5em}
-\fi
+\postauthor{
+    \end{tabular}\par\end{center}
+}
+\predate{\begin{center}\large}
+\postdate{\par\end{center}}
 % 中英文章节标题设置-------------------------------------------------------
 \RequirePackage{titlesec}
-\ifdefstring{\LW@sc}{None}{
-    \ifdefstring{\LW@cls}{report}{
-        \titleformat{\chapter}{\LARGE\bfsf\centering}{\thechapter}{0em}{}[]
-        \titlespacing*{\chapter}{0em}{2em}{2em}
-        \renewcommand{\thechapter}{\Roman{chapter}. }
-    }{}
-    \titleformat{\section}{\Large\bfsf}{\thesection}{0em}{}[]
-    \titlespacing*{\section}{0em}{1em}{1em}
-    \titleformat{\subsection}{\normalsize\bfsf}{\thesubsection}{0em}{}[]
-    \titlespacing*{\subsection}{0em}{0.5em}{0.5em}
-    \titleformat{\subsubsection}{\normalsize\bfsf}{\thesubsubsection}{0em}{}[]
-    \titlespacing*{\subsubsection}{0em}{0.5em}{0.5em}
-    \titleformat{\paragraph}[runin]{\normalsize\bfsf}{\theparagraph}{0em}{}[]
-    \titlespacing*{\paragraph}{0em}{0.5em}{1em}
-    \titleformat{\subparagraph}[runin]{\normalsize\bfsf}{\theparagraph}{0em}{}[]
-    \titlespacing*{\subparagraph}{2em}{0.5em}{1em}
+\ifdefstring{\LW@cls}{report}{
+    \titleformat{\chapter}{\LARGE\bfsf\centering}{\thechapter}{0em}{}[]
+    \titlespacing*{\chapter}{0em}{2em}{2em}
+    \renewcommand{\thechapter}{\Roman{chapter}. }
+}{}
+\titleformat{\section}{\Large\bfsf\centering}{\thesection}{0em}{}[]
+\titlespacing*{\section}{0em}{1em}{1em}
+\titleformat{\subsection}{\normalsize\bfsf}{\thesubsection}{0em}{}[]
+\titlespacing*{\subsection}{0em}{0.5em}{0.5em}
+\titleformat{\subsubsection}{\normalsize\bfsf}{\thesubsubsection}{0em}{}[]
+\titlespacing*{\subsubsection}{0em}{0.5em}{0.5em}
+\titleformat{\paragraph}[runin]{\normalsize\bfsf}{\theparagraph}{0em}{}[]
+\titlespacing*{\paragraph}{0em}{0.5em}{1em}
+\titleformat{\subparagraph}[runin]{\normalsize\bfsf}{\theparagraph}{0em}{}[]
+\titlespacing*{\subparagraph}{2em}{0.5em}{1em}
 
-    \renewcommand{\thesection}{\arabic{section}. }
-    \renewcommand{\thesubsection}{\arabic{section}.\arabic{subsection}. }
-    \renewcommand{\thesubsubsection}{\arabic{section}.\arabic{subsection}.\arabic{subsubsection}. }
-}{
-    \ifdefstring{\LW@cls}{report}{
-        \titleformat{\chapter}{\LARGE\bfsf\centering}{\CTEXthechapter}{0em}{}[]
-        \titlespacing*{\chapter}{0em}{2em}{2em}
-        \renewcommand{\CTEXthechapter}{\Roman{chapter}. }
-        \titleformat{\section}{\Large\bfsf}{\CTEXthesection}{0em}{}[]
-        \titlespacing{\section}{0em}{1em}{1em}
-    }{
-        \titleformat{\section}{\Large\bfsf\centering}{\CTEXthesection}{0em}{}[]
-        \titlespacing{\section}{0em}{1em}{1em}
-    }    
-    \titleformat{\subsection}{\normalsize\bfsf}{\CTEXthesubsection}{0em}{}[]
-    \titlespacing{\subsection}{2em}{0.5em}{0.5em}
-    \titleformat{\subsubsection}{\normalsize\bfsf}{\CTEXthesubsubsection}{0em}{}[]
-    \titlespacing{\subsubsection}{2em}{0.5em}{0.5em}
-    \titleformat{\paragraph}[runin]{\normalsize\bfsf}{\CTEXtheparagraph}{0em}{}[]
-    \titlespacing*{\paragraph}{0em}{0.5em}{1em}
-    \titleformat{\subparagraph}[runin]{\normalsize\bfsf}{\CTEXthesubparagraph}{0em}{}[]
-    \titlespacing*{\subparagraph}{2em}{0.5em}{1em}
-
-    \renewcommand{\CTEXthesection}{\arabic{section}. }
-    \renewcommand{\CTEXthesubsection}{\arabic{section}.\arabic{subsection}. }
-    \renewcommand{\CTEXthesubsubsection}{\arabic{section}.\arabic{subsection}.\arabic{subsubsection}. }
-}
+\renewcommand{\thesection}{\arabic{section}. }
+\renewcommand{\thesubsection}{\arabic{section}.\arabic{subsection}. }
+\renewcommand{\thesubsubsection}{\arabic{section}.\arabic{subsection}.\arabic{subsubsection}. }
 }
