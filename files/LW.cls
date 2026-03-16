@@ -1,7 +1,7 @@
 % From `www.linkwilder.github.io`. Base on TeXPage website.
 % Required Engine: XeLaTeX, Option:
 % cls = [article,report,beamer]
-% bfsf = [bf,sf,bfsf]
+% bfsf = [bf,sf,]
 % sc = [None,Fandol,Founder,ZhongYi] `None` wihtout CTEX
 % en = [None,NCM,TGPX,TGTX,TGNCM,TGNCMS,APC,ATC,ACC]
 % ma = [None,STIX,NCM,NCMS,XITS,TGP,TGT]
@@ -26,7 +26,7 @@
 % report----------------------------------------------------------------
 \ifdefstring{\LW@cls}{report}{\LoadClass[10pt,a4paper]{report}}{}
 % beamer----------------------------------------------------------------
-\ifdefstring{\LW@cls}{beamer}{\LoadClass[aspectratio=1610,t]{beamer}}{}
+\ifdefstring{\LW@cls}{beamer}{\LoadClass[10pt,aspectratio=1610]{beamer}}{}
 % ctex------------------------------------------------------------------
 \ifdefstring{\LW@sc}{None}{}{\RequirePackage[fontset=none]{ctex}}
 % 2.根据选项设置对应字体====================================================================
@@ -484,26 +484,6 @@
     \end{beamercolorbox}}%
     \vskip0pt%
 }
-\defbeamertemplate*{frametitle}{LW}[1][left]{%
-    \ifbeamercolorempty[bg]{frametitle}{}{\nointerlineskip}%
-    \@tempdima=\textwidth%
-    \advance\@tempdima by\beamer@leftmargin%
-    \advance\@tempdima by\beamer@rightmargin%
-    \begin{beamercolorbox}[sep=0.3cm,#1,wd=\the\@tempdima]{frametitle}
-        \usebeamerfont{frametitle}%
-        \vbox{}\vskip-1ex%
-        \if@tempswa\else\csname beamer@fte#1\endcsname\fi%
-        \strut\insertframetitle\strut\par%
-        {%
-          \ifx\insertframesubtitle\@empty%
-          \else%
-          {\usebeamerfont{framesubtitle}\usebeamercolor[fg]{framesubtitle}\strut\insertframesubtitle\strut\par}%
-          \fi
-        }%
-        \vskip-1ex%
-        \if@tempswa\else\vskip-.3cm\fi%
-    \end{beamercolorbox}\vskip-1ex%
-}
 % innner----------------------------------------------------------------
 \setbeamertemplate{navigation symbols}{}
 \setbeamertemplate{caption}[numbered]
@@ -514,7 +494,7 @@
 \newcommand{\LWsquare}{\raisebox{0.0ex}{\tikz{\filldraw (0,0) rectangle (0.2,0.2)}}}
 \newcommand{\LWsquarenum}[1]{\raisebox{-0.1ex}{\tikz{\node[rectangle,rounded corners=3pt,fill=link,text=white,inner sep=2pt,font=\scriptsize] at (0,0) {#1}}}}
 
-\defbeamertemplate*{section in toc}{LW}{\leavevmode\LWsquarenum{\inserttocsectionnumber} \inserttocsection\par}
+\defbeamertemplate*{section in toc}{LW}{\leavevmode\leftskip=1em\LWsquarenum{\inserttocsectionnumber} \inserttocsection\par}
 
 \defbeamertemplate*{subsection in toc}{LW}{\leavevmode\leftskip=1.5em
 \LWsquarenum{\inserttocsectionnumber.\inserttocsubsectionnumber} \inserttocsubsection\par}
@@ -522,9 +502,9 @@
 \defbeamertemplate*{subsubsection in toc}{LW}{\leavevmode\normalsize\leftskip=3em
 \LWsquarenum{\inserttocsectionnumber.\inserttocsubsectionnumber.\inserttocsubsubsectionnumber} \inserttocsubsubsection\par}
 
-\defbeamertemplate*{itemize item}{LW}{\LWcircle}
-\defbeamertemplate*{itemize subitem}{LW}{\LWcircle}
-\defbeamertemplate*{itemize subsubitem}{LW}{\LWcircle}
+\defbeamertemplate*{itemize item}{LW}{\leavevmode\LWcircle}
+\defbeamertemplate*{itemize subitem}{LW}{\leavevmode\LWcircle}
+\defbeamertemplate*{itemize subsubitem}{LW}{\leavevmode\LWcircle}
 
 \defbeamertemplate*{enumerate item}{LW}{\LWsquarenum{\insertenumlabel}}
 \defbeamertemplate*{enumerate subitem}{LW}{\LWsquarenum{\insertenumlabel.\insertsubenumlabel}}
@@ -533,7 +513,7 @@
 \def\familydefault{\rmdefault}
 \def\mathfamilydefault{\rmdefault}
 \setbeamerfont{tiny structure}{family=\rmfamily}
-\setbeamerfont{structure}{family=\bfsf}
+\setbeamerfont{structure}{family=\sffamily}
 
 \setbeamerfont{itemize/enumerate body}{}
 \setbeamerfont{itemize/enumerate subbody}{size=\normalsize}
