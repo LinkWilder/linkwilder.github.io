@@ -1,12 +1,12 @@
 % From `www.linkwilder.github.io`. Base on TeXPage website.
 % Required Engine: XeLaTeX, Option:
 % cls = [article,report,beamer]
-% bfsf = [bf,sf,]
+% bfsf = [bf,sf,bfsf]
 % sc = [None,Fandol,Founder,ZhongYi] `None` wihtout CTEX
-% en = [None,NCM,TGPX,TGTX,TGNCM,TGNCMS,APC,ATC,ACC]
+% en = [None,NCM,TGNCM,TGPX,TGTX,TGLMS,APC,ATC,ACC]
 % ma = [None,STIX,NCM,NCMS,XITS,TGP,TGT]
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{LW}[2026/03/12/13/05]
+\ProvidesClass{LW}[2026/03/16/13/05]
 % 文档类选项命令定义========================================================================
 \RequirePackage{kvoptions}
 \RequirePackage{etoolbox}
@@ -305,15 +305,14 @@
         UprightFont = *-Book
     ]{NewCM10}
 }{}
-% TeXGyreHeros & NewComputerModernSans & TeXGyreCursor------------------
-\ifdefstring{\LW@en}{TGNCMS}{
+% TeXGyreHeros & LatinModernSans & TeXGyreCursor------------------------
+\ifdefstring{\LW@en}{TGLMS}{
     \setmainfont[
         Extension = .otf,
-        UprightFont = *-Regular,
-        BoldFont = *-Bold,
-        ItalicFont = *-Oblique,
-        BoldItalicFont = *-BoldOblique
-    ]{NewCMSans10}
+        UprightFont = *-regular,
+        BoldFont = *-bold,
+        BoldItalicFont = *-boldoblique
+    ]{lmsans10}
     \setsansfont[
         Extension = .otf,
         UprightFont = *-regular,
@@ -434,7 +433,7 @@
     \setmathfont[Extension = .otf]{NewCMSansMath-Regular}
 }{}
 % XITSMath--------------------------------------------------------------
-\ifdefstring{\LW@ma}{LT}{
+\ifdefstring{\LW@ma}{XITS}{
     \setmathfont[Extension = .otf]{XITSMath-Regular}
 }{}
 % TeXGyrePagella--------------------------------------------------------
@@ -496,15 +495,15 @@
 
 \defbeamertemplate*{section in toc}{LW}{\leavevmode\leftskip=1em\LWsquarenum{\inserttocsectionnumber} \inserttocsection\par}
 
-\defbeamertemplate*{subsection in toc}{LW}{\leavevmode\leftskip=1.5em
+\defbeamertemplate*{subsection in toc}{LW}{\leavevmode\leftskip=2em
 \LWsquarenum{\inserttocsectionnumber.\inserttocsubsectionnumber} \inserttocsubsection\par}
 
 \defbeamertemplate*{subsubsection in toc}{LW}{\leavevmode\normalsize\leftskip=3em
 \LWsquarenum{\inserttocsectionnumber.\inserttocsubsectionnumber.\inserttocsubsubsectionnumber} \inserttocsubsubsection\par}
 
-\defbeamertemplate*{itemize item}{LW}{\leavevmode\LWcircle}
-\defbeamertemplate*{itemize subitem}{LW}{\leavevmode\LWcircle}
-\defbeamertemplate*{itemize subsubitem}{LW}{\leavevmode\LWcircle}
+\defbeamertemplate*{itemize item}{LW}{\LWcircle}
+\defbeamertemplate*{itemize subitem}{LW}{\LWcircle}
+\defbeamertemplate*{itemize subsubitem}{LW}{\LWcircle}
 
 \defbeamertemplate*{enumerate item}{LW}{\LWsquarenum{\insertenumlabel}}
 \defbeamertemplate*{enumerate subitem}{LW}{\LWsquarenum{\insertenumlabel.\insertsubenumlabel}}
